@@ -8,11 +8,10 @@ The rapid evolution of standards like HTML and the wide adoption of frameworks t
 These are the mobile how-to's:
 
 * [How to Build a Mendix Hybrid Mobile App for Windows Phone](building-a-mendix-hybrid-mobile-app-for-windows-phone)
-* [How to Enable WKWebView for Hybrid Apps on iOS](how-to-enable-wkwebview-for-hybrid-app-for-ios)
 * [How to Publish a Mendix Hybrid Mobile App in App Stores](publishing-a-mendix-hybrid-mobile-app-in-mobile-app-stores)
 * [Push Notifications](push-notifications)
     * [Implementation Guide](implementation-guide)
-    * [Testing the Implementation](testing-the-implementation)
+    * [Testing the Push Notifications Implementation](testing-the-implementation)
     * [APIs](apis)
     * [Setting up Apple Push Notification Server](setting-up-apple-push-notification-server)
     * [Setting up Google Cloud Messaging Server](setting-up-google-firebase-cloud-messaging-server)

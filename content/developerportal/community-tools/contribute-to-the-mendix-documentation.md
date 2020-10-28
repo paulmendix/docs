@@ -1,8 +1,7 @@
 ---
 title: "Contribute to the Documentation"
 category: "Community Tools"
-frontpage_featured: true
-menu_order: 20
+menu_order: 10
 description: "Describes how to add and edit Mendix documentation as a Mendix community member."
 tags: ["documentation", "community"]
 #If moving or renaming this doc file, update the link in the site footer and links in the mendix/docs repo. See Mapping to Products for more details.
@@ -10,7 +9,7 @@ tags: ["documentation", "community"]
 
 ## 1 Introduction
 
-The documentation is open to the Mendix community, which means you can make changes and add to it in ways that you see necessary. Do you see a how-to that is inaccurate or a section of the Mendix Studio Pro Guide that needs to be updated? You can easily help us improve the documentation for the whole Mendix community!
+All Mendix documentation is open to the Mendix community, which means you can make changes and add to it in ways that you see necessary. Do you see a how-to that is inaccurate or a section of the *Studio Pro Guide* that needs to be updated? You can easily help us improve the documentation for the whole Mendix community!
 
 All the Mendix documentation is stored in a [GitHub repository](https://github.com/mendix/docs). With a GitHub account, you can edit all existing documentation. You can also write a new how-to on an awesome topic of your choice and submit it.
 
@@ -62,10 +61,10 @@ The sections below present the key steps in writing new documentation for Mendix
 
 ### 4.1 Using a Template
 
-To submit a new how-to or Mendix Studio Pro Guide page to the Mendix documentation, start with a Mendix documentation template:
+To submit a new how-to or *Studio Pro Guide* page to the Mendix documentation, start with a Mendix documentation template:
 
-* To get the how-to template, right-click this link and save the file locally: [How-to Template](https://raw.githubusercontent.com/mendix/docs/development/templates/the-how-to-template.md)
-* To get the Mendix Studio Pro Guide page template, right-click this link and save the file locally: [Mendix Studio Pro Guide Page Template](https://raw.githubusercontent.com/mendix/docs/development/templates/the-reference-guide-page-template.md)
+* To get the how-to template, right-click this link and save the file locally: [How-to Template](https://raw.githubusercontent.com/mendix/docs/development/templates/how-to-template.md)
+* To get the *Studio Pro Guide* page template, right-click this link and save the file locally: [Mendix Studio Pro Guide Page Template](https://raw.githubusercontent.com/mendix/docs/development/templates/ref-guide-page-template.md)
 
 ### 4.2 Guidelines & Conventions {#naming}
 
@@ -81,7 +80,7 @@ Follow these guidelines and conventions when writing:
 	* Do not use spaces or any other symbols in the file name (for example, `&`), as these will not be accepted
 	* Make sure the image files have names that make sense so it is easy to find them
 	* Save the image files in a sub-folder in the **attachments** folder for the category in which the document is located (this sub-folder should have the same name as the document file name you are working on)
-	* The following image file types are allowed: `.png` (preferred), `.jpg`,  `.gif`
+	* The following image extensions are allowed: *.png* (preferred), *.jpg*, *.gif*
 
 ### 4.3 Submitting Your Work
 
@@ -98,11 +97,9 @@ You may receive a response to your pull request asking for verification of speci
 
 ## 5 Signing the Contributor License Agreement
 
-The first time you make a contribution to the Mendix documentation (via a pull request), you need to sign the [Contributor License Agreement for mendix/docs](https://www.clahub.com/agreements/mendix/docs) via CLAHub.
+The first time you make a contribution to the Mendix documentation (via a pull request), you need to sign the [Contributor License Agreement for mendix/docs](https://cla-assistant.io/mendix/docs).
 
-To access the license agreement, go to the **Conversation** tab of the pull request and click **Details** for **clahub**:
-
-![](attachments/contribute-to-the-mendix-documentation/license_agreement.png)
+To access the license agreement, go to the the **Checks** section of the pull request's **Conversation** tab and click **Details** for **license/cla** .
 
 This only needs to be done once.
 
@@ -110,7 +107,7 @@ This only needs to be done once.
 
 As you add knowledge to the documentation that will help your fellow Mendix developers, you will gain Mendix points for each contribution!
 
-Before you can receive Mendix points for your documentation contributions, you must authorize the connection of your GitHub profile to your Mendix Community Profile. For more information, see the [Authorizing GitHub Connection](/developerportal/mendix-profile/index#github) section in *Mendix Profile*
+Before you can receive Mendix points for your documentation contributions, you must authorize the connection of your GitHub profile to your Mendix Profile. For more information, see the [Authorizing GitHub Connection](/developerportal/mendix-profile/index#github) section in *Mendix Profile*
 
 The amount of points you gain depends on the size of the documentation contribution you make. This is calculated per pull request and is based on the number of lines changed:
 

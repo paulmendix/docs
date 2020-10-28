@@ -1,7 +1,7 @@
 ---
-title: "Make Custom Widgets"
+title: "Build Custom Widgets"
 category: "Extensibility"
-menu_order: 2
+menu_order: 30
 tags: ["widget", "develop widget", "customize"]
 ---
 
@@ -27,7 +27,7 @@ The sections below describe the Mendix resources that can help you understand ho
 
 * [Expert Series: Kickstart Your Widget Development](https://www.youtube.com/watch?v=MZ0Ihu2QGYY)
 
-### 3.2 Dojo
+### 3.2 Dojo {#dojo}
 
 Custom widgets are Dojo widgets. In order to understand how widgets are structured and what their life cycle is, you need to know how Dojo widgets are built. You can consult this quick introduction:
 
@@ -37,7 +37,7 @@ For details on the widget life cycle, reference this documentation:
 
  * [Writing Your Own Widget](http://dojotoolkit.org/reference-guide/1.10/quickstart/writingWidgets.html)
  * [dijit.\_WidgetBase](https://dojotoolkit.org/reference-guide/1.10/dijit/_WidgetBase.html)
- * [Tutorial: Widget Life Cycle](https://apidocs.mendix.com/6/client/tutorial-widget-lifecycle.html)
+ * [Tutorial: Widget Life Cycle](https://apidocs.rnd.mendix.com/6/client/tutorial-widget-lifecycle.html)
 
 ### 3.3 Widget Scaffolding
 
@@ -47,13 +47,13 @@ This information is covered in [Expert Series: Kickstart Your Widget Development
 
 ### 3.4 Interacting with Mendix Runtime
 
-Widgets have the ability to get data from the Runtime, manipulate objects, show validations, and set references. This is done through the Client API. For the latest version of the this API, see [Client API](https://apidocs.mendix.com/7/client).
+Widgets have the ability to get data from the Runtime, manipulate objects, show validations, and set references. This is done through the Client API. For the latest version of the this API, see [Client API](https://apidocs.rnd.mendix.com/8/client/index.html).
 
 ### 3.5 Configuring the Widget in Mendix
 
 Mendix has a specific way of configuring your widget through the use of an XML file. For more information and an example, see [WidgetName](https://github.com/mendix/AppStoreWidgetBoilerplate/blob/master/src/WidgetName/WidgetName.xml) in the AppStoreWidgetBoilerplate repository.
 
-For the full reference on writing a widget XML, see the [How to Use XML in Widget Development](use-xml-widget).
+For the full reference on writing a widget XML, see the [Build Widgets with XML](use-xml-widget).
 
 ### 3.6 Boilerplate
 
@@ -77,9 +77,9 @@ By debugging your widgets, you will quickly learn where you make mistakes and ho
 
 ### 4.3 Ask the Community
 
-Within the Mendix Community of developers, there are plenty of widget developers. The [Mendix Forum](https://forum.mendixcloud.com/index3.html) is the place to go to when you have questions.
+Within the Mendix community of developers, there are plenty of widget developers. The [Mendix Forum](https://forum.mendixcloud.com) is the place to go to when you have questions.
 
 ## 5 Main Documents in This Category
 
-* [Add a Preview Image for a Custom Widget](add-a-preview-image-for-custom-widget)
-* [Use XML in Widget Development](use-xml-widget)
+* [Build a Preview Image for a Custom Widget](add-a-preview-image-for-custom-widget)
+* [Build Widgets with XML](use-xml-widget)

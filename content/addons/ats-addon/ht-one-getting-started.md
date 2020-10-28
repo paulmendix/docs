@@ -1,6 +1,7 @@
 ---
 title: "Get Started"
 parent: "ht-one"
+menu_order: 1
 description: "Describes the initial steps for automatically testing your apps using ATS."
 tags: ["ATS", "testing"]
 ---
@@ -28,7 +29,7 @@ Before starting with this how-to, make sure you have the following prerequisites
 
 {{% youtube zJOpO0AymAg %}}
 
-## 3 Creating a New Project<a name="CreatingNewProject"></a>
+## 3 Creating a New Project {#CreatingNewProject}
 
 When you [log in to ATS](https://ats.mendix.com) as a user, you see the **My Projects** page. A project is a folder in which all the data related to a specific application will be saved and managed. Every user can create a new project, and, as its owner, manage other users' access to it. If there are no projects on your account yet, you are prompted to create a new project.
 
@@ -153,14 +154,14 @@ To create a test case, follow these steps:
 
 ### 5.2 Building a Test Script
 
-Now that you have created a test case, the next step is to configure your test case and start building your test script. ATS provides two different tools to build test scripts: ATS helper (Add) and ATS recorder (Record). In this how-to, we only describe how to use the ATS recorder.
+Now that you have created a test case, the next step is to configure your test case and start building your test script. ATS provides two different tools to build test scripts: ATS Helper (Add) and ATS Recorder (Record). In this how-to, we only describe how to use the ATS Recorder.
 
 Before you start building your test script, add the following tools:
 
 1. Click the **I-icon** in the top right corner of the screen, which opens, the **ATS Information** dialog box.
-2. Drag and drop the **ATS helper** link to your bookmark bar.
-3. To use the recorder function, you need to have the Google Chrome browser installed on your system and install the ATS Recorder Chrome plugin. The ATS recorder only works in Chrome.
-4. Install the ATS recorder extension in your Chrome browser.
+2. Drag and drop the **ATS Helper** link to your bookmark bar.
+3. To use the recorder function, you need to have the Google Chrome browser installed on your system and install the ATS Recorder Chrome plugin. The ATS Recorder only works in Chrome.
+4. Install the ATS Recorder extension in your Chrome browser.
 
 ![](attachments/ht-one-getting-started/ats-information-dialog.png)
 
@@ -179,7 +180,7 @@ To use the recorder function, follow these steps:
 
       Field | Description
       --- | ---
-      **Recorded event** | All the registered clicks/entering text will show up here in the sequence where they were done. Select an event to open the **Action mapping** menu of that particular event. The ATS recorder selects the actions for you.
+      **Recorded event** | All the registered clicks/entering text will show up here in the sequence where they were done. Select an event to open the **Action mapping** menu of that particular event. The ATS Recorder selects the actions for you.
       **Action mapping** | This shows all the available actions for this event. Click  **Select** if you want to choose a different action.
 
       ![](attachments/ht-one-getting-started/recorded-test-steps.png)

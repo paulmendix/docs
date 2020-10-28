@@ -1,15 +1,18 @@
 ---
 title: "Permissions API"
 category: "API Documentation"
+menu_order: 7
 ---
 
 ## 1 Introduction
 
-The Permissions API is an [App Service](/refguide/consumed-app-services) that allows retrieving the [user roles](/refguide/user-roles) a specific user has in your application. There are several ways in which the roles granted to a user in an application can be changed:
+{{% alert type="warning" %}}
+The AppCloudServices module has now been removed from the Mendix App Store and this API is therefore deprecated.
+{{% /alert %}}
 
-*   The role with which the user was invited through the Launchpad, or the role with which the user was invited through the [Invite API](invite-api).
-*   User roles for an individual user can be changed from the Launchpad in the _Manage App Users_ screen, provided the user attempting to change these has sufficient privileges.
-*   A user may be granted roles through a group policy for a security group he is a member of. Group policies define a specific set of user roles to be granted to members of the security group to which the policy applies, for a specific environment; they can be configured in the Company Admin. Security group membership can be changed through either the Company Admin or the [User Management API](user-management-api) .
+The Permissions API is an [App Service](/refguide/consumed-app-services) that enables retrieving the [user roles](/refguide/user-roles) a specific user has in your application. There are several ways in which the roles granted to a user in an application can be changed:
+
+* A user may be granted roles through a group policy for a [security group](/developerportal/company-app-roles/users#security-groups) in which they are a member. Group policies define a specific set of user roles to be granted to members of the security group to which the policy applies for a specific environment. Security group membership can be changed by either the Company Admin or via the [User Management API](user-management-api) .
 
 {{% alert type="info" %}}
 
@@ -17,7 +20,7 @@ The Permissions API will require the EnvironmentUUID and EnvironmentPassword par
 
 {{% /alert %}}
 
-The service is part of the [AppCloudServices module](https://appstore.home.mendix.com/link/app/934/Mendix/AppCloudServices), which is available from the App Store, and it's included in the default themes when creating a new application. Both of these options include a default implementation of the Permissions API.
+The service is part of the AppCloudServices module, and it's included in the default themes when creating a new application. Both of these options include a default implementation of the Permissions API.
 
 ## 2 API Calls
 

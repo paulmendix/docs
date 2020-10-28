@@ -34,6 +34,8 @@ If you want to restore a backup to a different cloud node, or have your backup s
 
 4. Confirm the backup restore by clicking **Restore Backup**.
 
+    ![](attachments/restore-a-backup/restore-backup.png)
+
 {{% alert type="info" %}}
 
 If the app is still running, you have to stop it by clicking **Stop Application**. Then click **Restore Backup** again.
@@ -44,6 +46,12 @@ If the app is still running, you have to stop it by clicking **Stop Application*
 
 To transfer backups between environments, you will need a downloaded backup file (*.db* or *.gz*) stored locally on your computer. This could also be the case if you want to restore a backup which has expired and been deleted from the Mendix Cloud.
 
+{{% alert type="warning" %}}
+You can only restore data to an existing database. This means that there must have been an app deployed to the licensed node before you attempt to restore data. If it is a new node environment, you must deploy an app to it before attempting to restore data to the node.
+
+The app previously deployed to the node does not, however, need to have had the same Domain Model as the data you are restoring.
+{{% /alert %}}
+
 1. Go to the **Backups** page of the *Developer Portal* for your app.
 
 2. Select the environment to which the backup should be restored (for example *Acceptance*).
@@ -52,15 +60,15 @@ To transfer backups between environments, you will need a downloaded backup file
 
 3. Click **Upload Archive**.
 
-    In **Mendix Cloud V4**, the upload will create a new backup item in your backup list, which you can then restore via the regular restore process. This will ensure less downtime for your application.
+    In **Mendix Cloud v4**, the upload will create a new backup item in your backup list, which you can then restore via the regular restore process. This will ensure less downtime for your application.
 
     In **Mendix Cloud v3**, this will *not* add a backup to the backup list but directly update the application with the newly uploaded data. Your environment will be cleared completely. The existing deployment package, uploaded files, and database will be removed. If you are uploading data to the production environment, any published app services will be unpublished.
 
-4. In Mendix Cloud **V3** you will need to confirm this by clicking **Yes**, because this action will immediately stop your app.
+4. In Mendix Cloud **v3** you will need to confirm this by clicking **Yes**, because this action will immediately stop your app.
 
 5. Upload the *.db* or *.gz* backup file.
 
-6. In Mendix Cloud **V4** you will now need to restore your backup which is held in the Mendix Cloud, as described in [Restoring a Backup for the Same Licensed Cloud Node](#restore-cloud-backup), above.
+6. In Mendix Cloud **v4** you will now need to restore your backup which is held in the Mendix Cloud, as described in [Restoring a Backup for the Same Licensed Cloud Node](#restore-cloud-backup), above.
 
 ## 4 Restoring a Backup for a Free App
 
@@ -80,11 +88,11 @@ You may want to restore a backup which has been created on another platform, for
 
 ### .tar.gz archive
 
-A **Full snapshot** backup file is a .tar.gz file (for example files_and_database-fc9e126f-201811210121.tar.gz).
+A **Full snapshot** backup file is a *.tar.gz* file (for example, *files_and_database-fc9e126f-201811210121.tar.gz*).
 
 ### .tar archive
 
-The .tar archive within the .tar.gz archive (for example files_and_database-fc9e126f-201811210121.tar) contains a number of files in a folder structure.
+The *.tar* archive within the *.tar.gz* archive (for example, *files_and_database-fc9e126f-201811210121.tar*) contains a number of files in a folder structure.
 
 Here is an example:
 
@@ -123,6 +131,8 @@ This contains the *db.backup* file. This is a PostgreSQL dump file created using
 
 {{% alert type="warning" %}}
 If the dump does not use the *custom format* then the restore will fail.
+
+The dump must be created with pg_dump version 9.6.17 or below. If it is created with a later version, then the upload will fail.
 {{% /alert %}}
 
 ### tree folder

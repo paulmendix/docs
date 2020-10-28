@@ -7,7 +7,7 @@ tags: ["ATS", "testing"]
 
 ## 1 Introduction
 
-This how-to explains how to create a negative test case in ATS. It uses the [Company Expenses](https://appstore.home.mendix.com/link/app/240/) app as an example.
+This how-to explains how to create a negative test case in ATS. The how-to uses the Company Expenses app template for an example scenario. However, this app template is no longer platform-supported by Mendix. Therefore, sections using this app template can only be used as reference and not as sections that can be completed step-by-step.
 
 ATS is a functional testing tool that asserts, finds, and sets widgets in a Mendix app. For this scenario, you do not want to know that a widget is present, but that a widget is not present.
 
@@ -48,26 +48,26 @@ This is the final test case:
 ![](attachments/ht-two-create-a-negative-test-case/negative-test-case.png)
 
 1. Open your app in ATS and go to the **Test Cases** menu item.
-2. Go to the **Repository** tab:
+2.  Go to the **Repository** tab:
 
-  ![](attachments/ht-two-create-a-negative-test-case/go-to-repository.png)
+	![](attachments/ht-two-create-a-negative-test-case/go-to-repository.png)
 
 3. Select the test case to add the negative test step.
-4. Add the **Assert not true** action where you want to place the negative test step:
+4.  Add the **Assert not true** action where you want to place the negative test step:
 
-![](attachments/ht-two-create-a-negative-test-case/Assert_not_true_step_added.png)
+	![](attachments/ht-two-create-a-negative-test-case/Assert_not_true_step_added.png)
 
-5. Set the **Assert Value** parameter of the Assert not true action to **True**:
+5.  Set the **Assert Value** parameter of the Assert not true action to **True**:
 
-![](attachments/ht-two-create-a-negative-test-case/set-to-true.png)
+	![](attachments/ht-two-create-a-negative-test-case/set-to-true.png)
 
-6. Add the action needed to search for the menu item as a **Precondition**. Check the precondition box and add the [Find/Assert Menu Item](rg-one-findassert-menu-item) action:
+6.  Add the action needed to search for the menu item as a **Precondition**. Check the precondition box and add the [Find/Assert Menu Item](rg-one-findassert-menu-item) action:
 
-  ![](attachments/ht-two-create-a-negative-test-case/add-findassert-menu-item-as-precondition-2.png)
+	![](attachments/ht-two-create-a-negative-test-case/add-findassert-menu-item-as-precondition-2.png)
 
-7. Enter the information needed to find the **Admin Menu** as an administrator to verify it is not visible as an employee. Also, enter a proper description.
+7.  Enter the information needed to find the **Admin Menu** as an administrator to verify it is not visible as an employee. Also, enter a proper description.
 
-  ![](attachments/ht-two-create-a-negative-test-case/negative-test-step-finished-2.png)
+	![](attachments/ht-two-create-a-negative-test-case/negative-test-step-finished-2.png)
 
 These are the inner-workings:
 

@@ -13,13 +13,11 @@ Mendix can be used to access Siemens MindSphere data and can also be deployed to
 
 ## 2 Main Documents in This Section
 
-There are three four in this section:
+There are four documents in this section:
 
 * [MindSphere Development Considerations](mindsphere-development-considerations) – covers things which you should address when developing for MindSphere, including the following:
 
-[//]: # (extra html styling moves the inner bullets closer to the top level bullet above, rather than seeming to be closer to the one below)
-
-	* <div style="margin-top:-10px;"></div>[Cloud Foundry environment variables](mindsphere-development-considerations#cfenvvars)
+	* [Cloud Foundry environment variables](mindsphere-development-considerations#cfenvvars)
 	* [Local testing](mindsphere-development-considerations#localtesting)
 	* [Multi-tenancy](mindsphere-development-considerations#multitenancy)
 	* [Validation<br style="margin-bottom: 10px;">](mindsphere-development-considerations#validation)

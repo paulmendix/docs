@@ -86,7 +86,7 @@ _Default value:_ False
 
 ### Default button trigger
 
-The default button can be triggered by a single or a double click on a row.
+The default button can be triggered by a single or a double click a row.
 
 | Value | Description |
 | --- | --- |
@@ -233,7 +233,7 @@ The caption of a column is the text that appears as a header above the rows. Thi
 
 #### Editable
 
-The editable property indicates whether the values of the column will be editable in-line, i.e. without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
+The editable property indicates whether the values of the column will be editable inline, as in, without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
 
 #### Aggregate function
 

@@ -1,11 +1,14 @@
 ---
-title: "Standard Action Overview"
+title: "Standard Actions"
 parent: "rg-one-test-development"
+menu_order: 4
 ---
+
+## 1 Introduction
 
 The following tables list all standard actions for Mendix. There's one table per folder/category.
 
-### DataGrid, TemplateGrid, ListView
+## 2 DataGrid, TemplateGrid, ListView
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
@@ -22,7 +25,7 @@ The following tables list all standard actions for Mendix. There's one table per
 | Set Row Cell Value | DataGrid | Sets the Cell Value in a DataGrid row |
 | Sort DataGrid | DataGrid | Sorts DataGrid by given Column |
 
-### Dialog
+## 3 Dialog
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
@@ -40,13 +43,13 @@ A _ConfirmationDialog_ is shown when a delete or microflow action requires a con
 
 {{% /alert %}}
 
-### FileManager
+## 4 FileManager
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
 | Set File Manager | FileManager | Set a file manager to the given file path to upload a file |
 
-### Generic
+## 5 Generic
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
@@ -61,7 +64,7 @@ A _ConfirmationDialog_ is shown when a delete or microflow action requires a con
 | Logout |   | Trigger logout/logoff from application via client API. Use this keyword in teardown of your test cases to end the user session. This will work regardless of the UI state. |
 | Open Application |   | Opens a Mendix application at [Website URL] in a browser with Mendix specific settings |
 
-### GroupBox
+## 6 GroupBox
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
@@ -69,29 +72,29 @@ A _ConfirmationDialog_ is shown when a delete or microflow action requires a con
 | GroupBox is Collapsed | GroupBox | Get GroupBox Collapsed state: true if collapsed, otherwise false |
 | Open GroupBox | GroupBox | open a groupbox |
 
-### Input
+## 7 Input
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
 | Assert Checkbox Value | CheckBox | Assert the value of a Checkbox |
 | Assert Value | TextBox, TextArea, DatePicker, DropDown, RadioButton, ReferenceSelector, SearchInput Text, SearchInput DropDown, Label, OnChange Inputbox | Assert the text value from a Textbox, Textarea, Dateinput |
-| Dropdown has Option | DropDown, ReferenceSelector, SearchInput DropDown | Returns true if value is available in dropdown |
+| Dropdown has Option | DropDown, ReferenceSelector, SearchInput DropDown | Returns true if value is available in drop-down |
 | Get Checkbox Value | CheckBox | Returns true if the Checkbox is checked |
-| Get Index | DropDown, ReferenceSelector, SearchInput DropDown | Get index of selected value in a dropdown, e.g. an EnumSelect or ReferenceSelector |
+| Get Index | DropDown, ReferenceSelector, SearchInput DropDown | Get index of selected value in a drop-down, e.g. an EnumSelect or ReferenceSelector |
 | Get Value | TextBox, TextArea, DatePicker, DropDown, RadioButton, ReferenceSelector, SearchInput Text, SearchInput DropDown, Label, OnChange Inputbox | Get the text value from a Textbox, Textarea, Dateinput, RadioButton, Dropdowns |
 | Set Checkbox Value | CheckBox | Sets the value of a Checkbox |
 | Set Value | TextBox, TextArea, DatePicker, DropDown, RadioButton, ReferenceSelector, SearchInput Text, SearchInput DropDown, OnChange Inputbox | Set the text value of a Textbox, Textarea, Dateinput, Reference Selector, Enum Selector |
-| Set Value (by index) | DropDown, ReferenceSelector, SearchInput DropDown | Set the value of a dropdown by index, e.g. EnumSelect or ReferenceSelector |
+| Set Value (by index) | DropDown, ReferenceSelector, SearchInput DropDown | Set the value of a drop-down by index, e.g. EnumSelect or ReferenceSelector |
 | Toggle Checkbox Value | CheckBox | Click on a Checkbox to toggle its value |
 
-### Navigation, Menu
+## 8 Navigation, Menu
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
 | Click Menu Item | NavigationTree, MenuBar, SimpleMenuBar | Click on a Menu Item in a Navigation Tree, Menu Bar and Simple Menu Bar |
 | Find/Assert Menu Item | NavigationTree, MenuBar, SimpleMenuBar | Find/Assert a visible Menu Item in a Navigation Tree, Menu Bar and Simple Menu Bar |
 
-### **System**
+## 9 System
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |
@@ -100,7 +103,7 @@ A _ConfirmationDialog_ is shown when a delete or microflow action requires a con
 | Get Current Page Title |   | Returns the Current Page/Form Title. |
 | Mendix wait |   | Inject Mendix Scripts and Wait |
 
-### Tab
+## 10 Tab
 
 | Action | Supported Widgets | Description |
 | --- | --- | --- |

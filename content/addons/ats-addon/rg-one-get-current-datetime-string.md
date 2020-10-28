@@ -3,23 +3,22 @@ title: "Get Current DateTime String"
 parent: "rg-one-ats-core-actions"
 ---
 
-## Description
+## 1 Description
 
-Returns the current date and time in supplied format (java date format)
-e.g. yyyy-MM-dd HH:mm:ss.
+Returns the current date and time in supplied format (Java date format) (for example, `yyyy-MM-dd HH:mm:ss`).
 
-## Usage
+## 2 Usage
 
-Pass the format for the date. For more informations about formating dates in java, check the [SimpleDateFormat Java reference](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+Pass the format for the datetime. For more informations about formating datetime in Java, see the [SimpleDateFormat](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html) Java reference.
 
-## Input Parameters
+## 3 Input Parameters
 
 Name | Datatype | Required | Description
 ---- | -------- | ------- |---------------
-Date Format | String | yes | The java date format definition to format the date.
+Datetime Format | String | yes | The Java datetime format definition to format the datetime (for example, `dd.MM.yyyy`).
 
-## Return Value
+## 4 Return Value
 
 Name | Datatype | Description
 ---- | --------- | ---------------
-Value | Boolean | Value of the checkbox. True if checked, otherwise false.
+CurrentDateTime | String | A string representation of the current datetime formatted accordingly (for example, `27.07.2020`).

@@ -4,6 +4,7 @@ category: "Security"
 menu_order: 20
 description: "A set of security aspects and checks to use when developing your Mendix application."
 tags: ["security", "best practices", "access rules", "authentication", "encryption", "password", "ssl", "identity provider", "mendix cloud"]
+#The anchor request-handlers below is mapped, so it should not be removed or changed.
 ---
 
 ## 1 Introduction
@@ -41,13 +42,13 @@ When you are building an application, you may use [Mendix App Store](https://app
 These are the common cases and best practices:
 
 *	HTML content, usually derived from an HTML editor and displayed using an HTML viewer, format string,  or an email client – these are the ways to avoid this abuse:
-    *	Use the XSSSanitize action from the [CommunityCommons](https://appstore.home.mendix.com/link/app/170/Mendix/Community-Commons-Function-Library) module to strip malicious code from the entered HTML
-    *	Display the value of an attribute as HTML or using the HTMLEncode function from the [CommunityCommons](https://appstore.home.mendix.com/link/app/170/Mendix/Community-Commons-Function-Library) module
-*	Database connections (for example, using a [Database Connector](https://appstore.home.mendix.com/link/app/2888/Mendix/Database-Connector)), where user input is being used within constraints – these are the ways to avoid this abuse:
+    *	Use the XSSSanitize action from the [CommunityCommons Function Library](/appstore/modules/community-commons-function-library) module to strip malicious code from the entered HTML
+    *	Display the value of an attribute as HTML or using the HTMLEncode function from the [Community Commons Function Library](/appstore/modules/community-commons-function-library) module
+*	Database connections (for example, using the [Database Connector](/appstore/connectors/database-connector)), where user input is being used within constraints – these are the ways to avoid this abuse:
     *	Use prepared statements, which will cause the database-specific connector to take care of escaping the value
     *	Sanity-check your user input (for example, use a regular expression to check if your user input only contains alphanumeric characters, spaces, and dashes)
 
-## 4 Applying Access Restrictions to Unnecessary Request Handlers
+## 4 Applying Access Restrictions to Unnecessary Request Handlers{#request-handlers}
 
 A Mendix app offers various endpoints that can be used to obtain information about offered services. The paths used by these endpoints end in `-doc`. By default, access to these endpoints is disabled when deploying to a cloud node.
 
@@ -87,17 +88,13 @@ Your application might require sensitive information that should be extra encryp
 * Connection information for consumed services (like credentials, service locations, or keys)
 * Personal information (like bank account numbers or social security numbers)
 
-This data is defined within the domain model and stored within the database of your application. To minimize the impact of this information when it is leaked, we recommend storing this data in a (symmetric) encrypted manner. The [Encryption module](https://appstore.home.mendix.com/link/app/1011/Mendix/Encryption) available from the Mendix App Store provides a way to encrypt this sensitive information in a database record based on an encryption key that is stored at the Mendix application server.
+This data is defined within the domain model and stored within the database of your application. To minimize the impact of this information when it is leaked, we recommend storing this data in a (symmetric) encrypted manner. The [Encryption](/appstore/modules/encryption) module available from the Mendix App Store provides a way to encrypt this sensitive information in a database record based on an encryption key that is stored at the Mendix application server.
 
 ## 7 Using a Third-Party Identity Provider
 
 When developing an application, authentication is one of the basic considerations. Even though Mendix comes with a basic authentication mechanism, your application’s security is improved when authentication is delegated to an enterprise grade identity provider like ADFS.
 
-Mendix offers a range of App Store modules that enable your application to be connected with these services, including:
-
-* [SAML](https://appstore.home.mendix.com/link/app/1174/Mendix/SAML)
-* [LDAP](https://appstore.home.mendix.com/link/app/24/Mendix/LDAP-Synchronization-module)
-* [Kerberos](https://appstore.home.mendix.com/link/app/25/Mendix/Kerberos-Single-Sign-On)
+Mendix offers the [SAML](/appstore/modules/saml) module that enables your application to be connected with these services.
 
 Your application can gain the following benefits from using an identity provider:
 
@@ -143,11 +140,13 @@ There are several scenarios possible for protecting your outgoing connections us
 
 You can add individual certificates in your project’s settings in . Test, acceptance, and production environments require their certificates to be uploaded to the Mendix Cloud (for more information, see [Certificates](/developerportal/deploy/certificates)).
 
-## 11 Preventing Your App from Being Embedded in an IFrame
+## 11 Adding HTTP Headers {#adding-http-header}
 
-Applications that can be embedded within an Iframe can be misused by attackers. By using an overlay, it could trick users into clicking on buttons and make them perform actions within the application on their behalf without knowing it. This approach is called [clickjacking](https://www.owasp.org/index.php/Clickjacking).
+HTTP headers can add an additional layer of security and help you detect certain attacks. For information on how to add HTTP headers, see the [HTTP Headers](/developerportal/deploy/environments-details#http-headers) section in *Environment Details*.  
 
-By sending a header to the user’s browser, it can block the use of the Mendix application within an Iframe, and avoid this type of attack. This header can easily be configured (and is enabled by default) within the Mendix Developer Portal at your node’s environment details at via **Prevent embedding your app in an Iframe**.
+An example of an attack is when an application is embedded in an iframe. Applications that can be embedded within an iframe can be misused by attackers. By using an overlay, it could trick users into clicking buttons and make them perform actions within the application on their behalf without knowing it. This approach is called [clickjacking](https://www.owasp.org/index.php/Clickjacking).
+
+By sending a header to the user’s browser, it can block the use of the Mendix application within an iframe and avoid this type of attack. The header is set by default to block embedding within an iframe, but can be configured using [HTTP Headers](/developerportal/deploy/environments-details#http-headers) in your node’s environment details within the Mendix Developer Portal. If you change this value, you will also need to ensure that *SameSite* cookies are set to the correct value. See [Iframes and Running Apps](/developerportal/deploy/running-in-iframe) for more information.
 
 ## 12 Maintaining a High Level of Project Hygiene
 
@@ -169,3 +168,12 @@ Which users and roles are defined within an application is different per app and
   * Some applications have anonymous access enabled, solely to serve a custom login form – this can be replaced by modifying the default *login.html* within your theme (which will also help the user experience with an improved loading time)
 * Roles managing other user roles should be as strict as possible (configured via **User management** within the user role options)
 * The role of the app project’s administrator user (default **MxAdmin**) should only be able to create the actual administrative accounts (or configure SSO)
+
+## 14 Scanning Uploaded Files for Malicious Content {#scanning-for-malicious-content}
+
+Security in Mendix does not include scanning files that end-users upload or download from your application for viruses and malware. 
+
+To scan uploaded files for malicious content, do one of the following:
+
+* Create a custom module and configure the functionality yourself.
+* Check available modules in the [Mendix App Store](https://appstore.home.mendix.com/index3.html). For more information on how to use the Mendix App Store content, see [How to Use App Store Content in Studio Pro](/appstore/general/app-store-content).

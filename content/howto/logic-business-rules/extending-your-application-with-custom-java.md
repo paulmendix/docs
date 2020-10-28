@@ -2,7 +2,7 @@
 title: "Extend Your Application with Custom Java"
 category: "Logic & Business Rules"
 menu_order: 12
-tags: ["microflow", "logic", "java", "extend"]
+tags: ["microflow", "logic", "java", "extend", "jdk", "custom", "UnsupportedClassVersionError"]
 ---
 
 ## 1 Introduction
@@ -22,7 +22,7 @@ Before starting this how-to, make sure you have completed the following prerequi
 	{{% alert type="info" %}}You can use any text editor to create custom Java actions, but we highly recommend using Eclipse. Studio Pro contains a **Deploy for Eclipse** feature verifying that everything that needs to be configured in Eclipse is done automatically. All you have to do is import the project into your Eclipse working environment.
 {{% /alert %}}
 
-* Have an app project with the **Asset Manager** starter app (**Create App** > **Asset Manager**)
+* Have an app project with the **Asset Manager** app template
 
 ## 3 Adding a Java Action in Studio Pro
 
@@ -120,7 +120,7 @@ To edit the Java action in Eclipse, follow these steps:
 	{{% /image_container %}}
 
 11. Click **OK** to save the expression.
-12. In the **Call Java Action** window, change the output **Variable** to *ReversedName*:
+12. In the **Call Java Action** properties editor, change the output **Variable** to *ReversedName*:
 
 	{{% image_container width="500" %}}![](attachments/extend-custom-java/call2.png)
 	{{% /image_container %}}
@@ -138,7 +138,7 @@ To edit the Java action in Eclipse, follow these steps:
 	{{% image_container width="500" %}}![](attachments/extend-custom-java/parameter.png)
 	{{% /image_container %}}
 
-18. Click **OK** to save the parameter. The **Show Message** activity properties should now look like this:
+18. Click **OK** to save the parameter. The **Show Message** properties should now look like this:
 
 	{{% image_container width="500" %}}![](attachments/extend-custom-java/show-message.png)
 	{{% /image_container %}}
@@ -162,10 +162,16 @@ To edit the Java action in Eclipse, follow these steps:
 	{{% image_container width="600" %}}![](attachments/extend-custom-java/app2.png)
 	{{% /image_container %}}
 
-## 7 Read More
+## 7 Troubleshooting {#troubleshooting}
+
+If you get an `UnsupportedClassVersionError` when running your app, follow these steps:
+
+1. Clean your app project's **deployment** folder by selecting **Project** > **Clean Deployment Directory**.
+2. Add the same JDK version to Eclipse as that which you are using in Studio Pro (this is the recommended version correlation). For details on JDK requirements, see the [Mendix Studio Pro](/refguide/system-requirements#sp) section of *System Requirements*.
+
+## 8 Read More
 
 * [Define Access Rules Using XPath](define-access-rules-using-xpath)
-* [Trigger Logic Using Microflows](triggering-logic-using-microflows)
 * [Create a Custom Save Button](create-a-custom-save-button)
 * [Work with Lists in a Microflow](working-with-lists-in-a-microflow)
 * [Optimize Retrieve Activities](optimizing-retrieve-activities)

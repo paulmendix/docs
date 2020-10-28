@@ -8,15 +8,15 @@ tags: ["Charts", "Any Chart", "Desktop Modeler", "Pages"]
 
 You can add a wide range of charts to your app pages to display data series visually.
 
-[Basic Charts](#basic-charts) are included in Mendix starter apps based on Atlas UI. They can be included in other Mendix apps by downloading them from the Mendix App Store here: https://appstore.home.mendix.com/link/app/105695/.
+[Basic Charts](#basic-charts) are included in Mendix app templates based on Atlas UI. They can be included in other Mendix apps by downloading them from the Mendix App Store here: https://appstore.home.mendix.com/link/app/105695/.
 
-[Any Chart](#any-chart) gives much more control and implements all the features of [plotly.js](https://plot.ly/). The *Any chart* widget can be included in your Mendix app by downloading it from the Mendix App Store here: https://appstore.home.mendix.com/link/app/106517/.
+[Any Chart](#any-chart) gives much more control and implements all the features of [plotly.js](https://plot.ly/). The [Any Chart](/appstore/modules/any-chart) module can be included in your Mendix app by downloading it from the Mendix App Store.
 
 ## 2 Basic Charts {#basic-charts}
 
 With Mendix Charts you can quickly create beautiful charts. The following charts are included:
 
-* **Area** chart – a line chart with a fill to the x axis
+* **Area** chart – a line chart with a fill to the X-axis
 * **Bar** chart – horizontal bars, grouped or stacked
 * **Bubble** chart – add a size dimension to your chart
 * **Column** chart – vertical bars, grouped or stacked

@@ -59,7 +59,7 @@ The project explorer shows an icon in front of items (documents, folders and mod
 | Icon | Meaning |
 | --- | --- |
 | ![](attachments/524294/688173.png) | Nothing happened to this item. It is unchanged w.r.t. to the original. |
-| ![](attachments/524294/688172.png) | You modified this item (i.e. document, folder or module). |
+| ![](attachments/524294/688172.png) | You modified this item (as in, document, folder or module). |
 | ![](attachments/524294/688175.png) | You added this item. |
 | ![](attachments/524294/688174.png) | You moved this item to another position in the project tree. |
 | ![](attachments/524294/688164.png) | You deleted this item. |
@@ -166,7 +166,7 @@ There are two different sorts of conflict:
 
 Two changes in the same *document* that are really close to each other can cause a document conflict. For example, two people both change the properties of the same element on the page. The document will be marked as conflicted in the *Changes* dock. Conflicts have to be resolved before you can commit again.
 
-Double-click on a document to see which elements have conflicts. You can also see all the changes which have been made by you, and all the changes which were made by other people.
+Double-click a document to see which elements have conflicts. You can also see all the changes which have been made by you, and all the changes which were made by other people.
 
 ![Detailed document conflicts](attachments/modeler-core/document-changes.png)
 

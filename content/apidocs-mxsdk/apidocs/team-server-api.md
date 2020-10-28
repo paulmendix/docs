@@ -1,24 +1,30 @@
 ---
 title: "Team Server API"
 category: "API Documentation"
+menu_order: 12
 ---
+
 ## 1 Introduction
 
 The team server API allows you to retrieve the information (branches, revisions) of application models stored in our team server. You always access an application model via the context of an application (see the Deploy API for more information about retrieving applications and application identifiers).
 The image below provides a domain model representation of the concepts discussed below and how these are related:
 ![](attachments/131076/425989.png)
 
+{{% alert type="warning" %}}
+The team server API is only available to *licensed* apps which are running in a Mendix Cloud.
+{{% /alert %}}
+
 ## 2 Authentication
 
 The Developer Portal Management API requires its users to authenticate themselves. This can be done by using API keys; for more information about this please refer to [this article](authentication "authentication").
 
-## 3 API calls
+## 3 API Calls
 
-### 3.1 Retrieve branches
+### 3.1 Retrieve Branches
 
 <a name="TeamServerAPI-Description" rel="nofollow"></a>Retrieves all branches that belong to the team server project of a specific app which the authenticated user has access to as a regular user.
 
-```java
+```http
 HTTP Method: GET
  URL: https://deploy.mendix.com/api/1/apps/<AppId>/branches/
 ```
@@ -31,7 +37,7 @@ HTTP Method: GET
 
 ##### 3.1.1.2 Example
 
-```java
+```http
 GET /api/1/apps/calc/branches/ HTTP/1.1
 Host: deploy.mendix.com
 
@@ -58,7 +64,7 @@ List of objects with the following key-value pairs:
 
 ##### 3.1.2.2 Example
 
-```java
+```json
 [{
      "Name" :  "trunk" ,
      "LatestRevisionNumber" :  9 ,
@@ -72,11 +78,11 @@ List of objects with the following key-value pairs:
 }]
 ```
 
-### 3.2 Retrieve Branch{#retrieve-branch}
+### 3.2 Retrieve Branch {#retrieve-branch}
 
 Retrieves a specific branch that belongs to the team server project of a specific app which the authenticated user has access to as a regular user.
 
-```java
+```http
  HTTP Method: GET
  URL: https://deploy.mendix.com/api/1/apps/<AppId>/branches/<Name>
 ```
@@ -90,7 +96,7 @@ Retrieves a specific branch that belongs to the team server project of a specifi
 
 ##### 3.2.1.2 Example
 
-```java
+```http
 GET /api/1/apps/calc/branches/statistical%20functions HTTP/1.1
 Host: deploy.mendix.com
 
@@ -118,7 +124,7 @@ An object with the following key-value pairs:
 
 ##### 3.2.2.2 Example
 
-```java
+```json
 {
     "Name": "statistical functions",
     "LatestRevisionNumber": 13,
@@ -131,7 +137,7 @@ An object with the following key-value pairs:
 
 Retrieves all revisions of a specific branch that belongs to the team server project of a specific app which the authenticated user has access to as a regular user.
 
-```java
+```http
 HTTP Method: GET
  URL: https://deploy.mendix.com/api/1/apps/<AppId>/branches/<Name>/revisions/
 ```
@@ -145,7 +151,7 @@ HTTP Method: GET
 
 ##### 3.3.1.2 Example
 
-```java
+```http
 GET /api/1/apps/calc/branches/trunk/revisions/ HTTP/1.1
 Host: deploy.mendix.com
 
@@ -174,7 +180,7 @@ List of objects with the following key-value pairs:
 
 ##### 3.3.2.2 Example
 
-```java
+```json
 [{
     "MendixVersion": "5.6.0",
     "CommitMessage": "Implement C key",

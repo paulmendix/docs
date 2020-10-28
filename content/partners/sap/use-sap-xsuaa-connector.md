@@ -1,8 +1,8 @@
 ---
-title: "Use the SAP XSUAA Connector"
+title: "Use the XSUAA Connector for SAP Cloud Platform"
 category: "SAP"
 menu_order: 45
-description: "Describes how to set up the SAP XSUAA Connector."
+description: "Describes how to set up the XSUAA Connector for SAP Cloud Platform."
 tags: ["SAP", "integration", "OData", "SSO"]
 ---
 
@@ -12,7 +12,7 @@ When you deploy an application to SAP Cloud Platform using the SAP deployment fe
 
 A Mendix application is role-based. Using the SAP Cloud Platform cockpit, you can assign the roles within the app to roles within your SAP subaccount. The roles in the SAP subaccount can then be assigned to individual users via the selected IdP (Trust Configuration).
 
-In this document, you will see how to use the SAP XSUAA Connector to provide SSO in an app which has two roles: Supervisor and Inspector. 
+In this document, you will see how to use the XSUAA Connector for SAP Cloud Platform to provide SSO in an app which has two roles: Supervisor and Inspector. 
 
 **This how-to will teach you how to do the following:**
 
@@ -24,7 +24,7 @@ In this document, you will see how to use the SAP XSUAA Connector to provide SSO
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Create an SAP app using an SAP starter app
+* Create an SAP app using an SAP app template
 * Select and deploy the app to an SAP account and subaccount where you have authority to configure security
 * Set the security level for the project to at least Prototype/demo to use SAP Authentication; for more information see [Project Security](/refguide/project-security) and for instructions on setting security levels, see [How To Create a Secure App](/howto/security/create-a-secure-app)
 * Setup the app with the following two **User roles** in **Project ... > Security**: Supervisor and Inspector
@@ -33,13 +33,13 @@ Before starting this how-to, make sure you have completed the following prerequi
 
 * Ensure the app behaves differently according to the user role, so you can see the effect of setting up the roles in XSUAA. For example, give each role a different starting page as described here: [How To Set Up the Navigation Structure](/howto/general/setting-up-the-navigation-structure)
 
-## 3 Getting the SAP XSUAA Connector Module
+## 3 Getting the XSUAA Connector for SAP Cloud Platform Module
 
-The SAP app may already have the SAP XSUAA Connector installed. Look in **Project... > App Store modules** for the module **SapAuthentication**. This is the XSUAA connector.
+The SAP app may already have the XSUAA Connector for SAP Cloud Platform installed. Look in **Project... > App Store modules** for the module **SapAuthentication**. This is the XSUAA connector.
 
-If the SAP XSUAA Connector is not already in your project, download it from the App Store. It can be found here: [SAP Cloud Platform XSUAA Connector](https://appstore.home.mendix.com/link/app/78091/).
+If the XSUAA Connector for SAP Cloud Platform is not already in your project, download it from the App Store. It can be found here: [XSUAA Connector for SAP Cloud Platform](https://appstore.home.mendix.com/link/app/78091/).
 
-For more information, see [How to Use App Store Content](/developerportal/app-store/app-store-content).
+For more information, see [How to Use App Store Content in Studio Pro](/appstore/general/app-store-content).
 
 ## 4 Using the Connector
 
@@ -51,12 +51,12 @@ SAP Authentication will not work if the Project Security is off. See the prerequ
 
 ### 4.1 Adding the OnStartup Microflow to the Application Settings
 
-The app needs to be bound to the SAP XSUAA service. This is achieved by executing a microflow when the app starts. This may have been set up already if XSUAA was included in your starter app.
+The app needs to be bound to the SAP XSUAA service. This is achieved by executing a microflow when the app starts. This may have been set up already if XSUAA was included in your app template.
 
 To add the After Startup microflow to your application, follow these steps:
 
 1. In the **Project Explorer**, select **Project ... > Settings** and open the **Runtime** tab.
-2. For the **After Startup** microflow, select the microflow **App Store Modules > SapAuthentication > USE_ME > AfterStartup**.
+2. For the **After Startup** microflow, select the microflow **App Store Modules > SapAuthentication > USE_ME > ASu_StartXSUAA**.
 
 ![](attachments/use-sap-xsuaa-connector/runtime-settings.png)
 
@@ -77,16 +77,23 @@ If login.html does not support XSUAA then you need to add the SSO login button t
 
 1. In the top menu of , select **Project** > **Show Project Directory in Explorer**.
 2. Open the **theme** folder.
+3. Copy the content of **login-with-sso.html** to **login.html**.
 3. Open **login.html** for editing.
-4. Locate this line:
+4. Locate the following lines:
 
 	```html
-	<div class="login-logo"></div>
+	<a id="ssoButton" href="/openid/login" class="btn btn-default btn-lg">
+		<img src="logo.png" />
+		<span class="loginpage-signin">Mendix Account</span>
+	</a>
 	```
-5. Below the line above, add this line:
+5. Replace those lines with the following lines (or add them below the `<a>` element in the code above):
 
 	```html
-	<a id="ssoButton" href="/xsauaalogin/" class="login-sso-button btn btn-primary">Sign in with your XSUAA account</a>
+	<a id="ssoButton" href="/xsauaalogin/" class="btn btn-default btn-lg">
+		<img src="logo.png" />
+		<span class="loginpage-signin">Sign in using XSUAA</span>
+	</a>
 	```
 6. Deploy and run your app. The XSUAA login button will look like this:
 
@@ -98,6 +105,8 @@ An alternative to adding the SSO login button to the landing page of your app is
 
 {{% alert type="info" %}}
 Note that this will only work if you are running your app on SAP Cloud Platform.
+
+Because users will be automatically redirected to XSUAA after signing out of the application, this could cause them to be signed in again.
 {{% /alert %}}
 
 To accomplish this, follow these steps:
@@ -232,9 +241,8 @@ You can picture the authentication as shown below:
 
 ## 6 Read More
 
-* [Create a Secure App](/howto/security/create-a-secure-app)
-* [Use App Store Content](/developerportal/app-store/app-store-content)
+* [How to Create a Secure App](/howto/security/create-a-secure-app)
+* [How to Use App Store Content in Studio Pro](/appstore/general/app-store-content)
 * [Project Security](/refguide/project-security)
-* [SAP Cloud Platform XSUAA Connector](https://appstore.home.mendix.com/link/app/78091/)
-* [SAP XSUAA Connector](/partners/sap/sap-xsuaa-connector)
+* [XSUAA Connector for SAP Cloud Platform](/partners/sap/sap-xsuaa-connector) (documentation)
 * [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/cockpit#/home/allaccounts)

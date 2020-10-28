@@ -33,8 +33,8 @@ To view the Company Contact, follow these steps:
 1. Go to the [Developer Portal](http://home.mendix.com) and in the top-right corner, click your avatar and select **My Profile**:
 
     ![](attachments/show-profile.png)
-2. Below your name, click your the name of your company.
-3. Below **Contact**, you can see the Company Contact:
+2. Below your name, click your company name.
+3. Below **Contact**, the Company Contact is displayed:
 
     ![](attachments/company-contact.png)
 
@@ -53,7 +53,7 @@ As a regular user, you cannot join an App Team by yourself. If you want to join 
 ![](attachments/company-app.png)
 
 {{% alert type="info" %}}
-It is thus important that the App Contact has the correct permissions to manage the app (for example, the SCRUM Master role).
+It is thus important that the App Contact has the correct permissions to manage the app (for example, the Scrum Master role).
 {{% /alert %}}
 
 For more information on roles and permissions, see [App Team Roles](#app-team-roles) below. 
@@ -66,11 +66,11 @@ When you view the details for a specific app, you will see the two roles respons
 
 These app roles are described below.
 
-### 3.1 App Contact
+### 3.1 App Contact {#app-contact}
 
-The App Contact is visible to regular users and is the go-to person for questions related to the app. If you build your own app, you will automatically become the App Contact and you will have the SCRUM Master role as an [App Team role](#app-team-roles). 
+The App Contact is visible to regular users and is the go-to person for questions related to the app. If you build your own app, you will automatically become the App Contact and you will have the Scrum Master role as an [App Team role](#app-team-roles). 
 
-If you change the App Contact (for details on how to do this, see the [Changing the App Contact](manage-roles#change-app-contact) section of *How to Manage Company & App Roles*), you should provide the new App Contact with the App Team [SCRUM Master](#app-team-roles) role. Because the App Contact will be the contact for regular users, they will thus be able to perform app operations on behalf of all SCRUM Masters.
+If you change the App Contact (for details on how to do this, see the [Changing the App Contact](manage-roles#change-app-contact) section of *How to Manage Company & App Roles*), you should provide the new App Contact with the App Team [Scrum Master](#app-team-roles) role. Because the App Contact will be the contact for regular users, they will thus be able to perform app operations on behalf of all Scrum Masters.
 
 ### 3.2 Technical Contact {#technical-contact}
 
@@ -104,14 +104,14 @@ Role | Explanation
 ------------ | -------------
 Application Operator | An App Team member who does not actively develop the app, but is responsible for operations on the app's cloud node. 
 Business Engineer | An App Team member who contributes to the development of the app. 
-End-user | A user of the app who should have insight into the backlog but does not actively participate in development (for example, a stakeholder). 
+Guest | A user of the app who should have insight into the backlog but does not actively participate in development (for example, a stakeholder). 
 Product Owner | The product owner of the Scrum team who is responsible for managing the app's backlog.
-SCRUM Master | The Scrum Master of the Agile App Team. In addition to contributing to development, the SCRUM Master manages all the settings within the app. If you create a new app, you will automatically become the SCRUM Master.
+Scrum Master | The Scrum Master of the Agile App Team. In addition to contributing to development, the Scrum Master manages all the settings within the app. If you create a new app, you will automatically become the Scrum Master.
 
 For details on how to manage App Team roles, see the [Editing App Team Roles](manage-roles#edit-app-team-roles) section of *How to Manage Company & App Roles*.
 
 ## 5 Main Documents in This Category
 
-* [Manage Company & App Roles](manage-roles) –  describes how to add a Company Admin, change the various contacts for the app project, and edit the App Team roles
+* [Manage Company & App Roles](manage-roles) – describes how to add a Company Admin, change the various contacts for the app project, and edit the App Team roles
 * [Company Admin Settings](companyadmin-settings) – explains how to access and configure Company Admin settings for the company, users, apps, and nodes
 * [Technical Contact](technical-contact) – describes the role of the Technical Contact within the Mendix Cloud

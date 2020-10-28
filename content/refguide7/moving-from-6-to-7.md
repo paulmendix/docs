@@ -58,7 +58,7 @@ Verify that during the migration steps listed above, no modules are replaced by 
 
 ## 4 Breaking Changes
 
-### 4.1 Stateless Runtime
+### 4.1 Stateless Runtime {#stateless}
 
 An earlier version of Mendix enabled applications to move sessions to the database and files to an external file storage facility (for example, S3 or Azure Blob Storage). In Mendix 7, the server object state has been moved to the client, which means that the server is now completely stateless and can be scaled horizontally at will.
 
@@ -100,7 +100,7 @@ The `System.Statistics` entity has been removed from the **System** module, as t
 
 ### 4.8 Client API Changes
 
-The semantics have changed for `MxObject.get` and `mx.parser.parseValue`. They now return a value of an appropriate type (for example, `Big` for numbers, numbers for dates) instead of always returning a string. For more details, see [Class: mendix/lib/MxObject](https://apidocs.mendix.com/7/client/mendix_lib_MxObject.html#get).
+The semantics have changed for `MxObject.get` and `mx.parser.parseValue`. They now return a value of an appropriate type (for example, `Big` for numbers, numbers for dates) instead of always returning a string. For more details, see [Class: mendix/lib/MxObject](https://apidocs.rnd.mendix.com/7/client/mendix_lib_MxObject.html#get).
 
 Support for `dojo.require` has been dropped. It never worked in hybrid apps, and we have now made it official. Write your custom widgets in the AMD style, as described in [App Store Widget Boilerplate](https://github.com/mendix/AppStoreWidgetBoilerplate).
 
@@ -145,7 +145,7 @@ For more information, see [Layouts](layout#layout-type) and the blog post [Layou
 
 #### 6.1.3 Apply Context & Remove from Context
 
-The **Apply context** and **Remove from context** options of the reference selector, data grid, and template grid data sources were deprecated long ago (in [Mendix 5.19.0](/releasenotes/studio-pro/5.19)), and they have now been removed. You will now get consistency errors in places where you used them. We suggest using explicit XPath constraints instead.
+The **Apply context** and **Remove from context** options of the reference selector, data grid, and template grid data sources were deprecated in Mendix version 5.19, and they have been removed. You will now get consistency errors in places where you used them. We suggest using explicit XPath constraints instead.
 
 ### 6.2 Removed Client APIs
 

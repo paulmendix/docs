@@ -14,10 +14,11 @@ On the **Feedback** page of the Developer Portal, you can view and manage the fe
 
 This feedback comes from different sources:
 
-* Submitted via the [Mendix Feedback Widget](use-feedback-widget)
+* Submitted via the [Mendix Feedback widget](/appstore/widgets/mendix-feedback)
 * Submitted on the **Feedback** page itself (for details, see the [Actions](#actions) section, below)
+* Submitted in Mendix Studio (for more information, see [Buzz](/studio/collaboration-buzz))
 
-## 2 Feedback Fundmentals
+## 2 Feedback Fundamentals
 
 ### 2.1 Types of Feedback {#types}
 
@@ -59,6 +60,10 @@ Clicking on the title of a feedback item or on **Details** opens the item's deta
 
 You can perform various actions for reviewing and processing a feedback item on this page. These actions are described below.
 
+{{% alert type="info" %}}
+If you need to use a link to a specific feedback item (for example, to ask someone else on your team to review it), you can use the URL `https://sprintr.home.mendix.com/link/showfeedback/{FeedbackID}` where `{FeedbackID}` is the feedback number – for example `382647` from the example above.
+{{% /alert %}}
+
 ### 4.1 Reviewing a Feedback Item
 
 Here you can review the feedback and start any necessary investigation.
@@ -71,7 +76,7 @@ You can also click **Details** for technical details of the feedback item:
 
 On the item's details page, you can also **Turn email updates on/off**. This is useful for when you comment on a feedback item and perform further [processing](#processing) actions on it.
 
-In the **Leave a comment** box, you can post a comment and start an exchange with the app user or App Team member who submitted the feedback. This is a good place to ask for clarification. You can also use the **Add:** icons to attach files to your comment.
+In the **Leave a comment** box, you can post a comment and start an exchange with the App User or App Team member who submitted the feedback. This is a good place to ask for clarification. You can also use the **Add:** icons to attach files to your comment.
 
 ![](attachments/feedback/comment.png)
 
@@ -115,7 +120,3 @@ Once a feedback item is connected to a user story, the user who submitted the st
 
 * Adding a story with feedback attached from your backlog to a Sprint will result in a message that the item has been planned
 * Completing a Sprint that contains a story with feedback attached will result in a message that the item has been completed
-
-## 5 Main Documents in This Category
-
-* [Use the Mendix Feedback Widget](use-feedback-widget)

@@ -14,8 +14,10 @@ An Internet Protocol address (IP address) is simply the address of a device on a
 
 Mendix uses one IP address when someone connects to your Mendix application (Incoming IP) and a different IP address for when your application connects to outside services (Outgoing IP).
 
-{{% alert type="info" %}}
-Mendix will endeavor to maintain the current static IP addresses. However, both incoming and outgoing IP addresses may change for operational reasons. This is subject to a 48-hour notice period.
+{{% alert type="warning" %}}
+Incoming IP addresses are liable to change without notice and should not be used to access the application.
+
+Mendix will endeavor to maintain the current *outgoing* IP addresses. However, they may change for operational reasons and this is subject to a 48-hour notice period.
 {{% /alert %}}
 
 ### 2.1 Incoming IP
@@ -28,20 +30,18 @@ This is the IP address other servers see when the Mendix application initiates t
 
 Mendix uses the following static IP addresses. If you need further information, please file a support ticket with Mendix Support.
 
-#### 2.2.1 Mendix Cloud V4
+#### 2.2.1 Mendix Cloud v4
 
-| Region | IP Addresses |
-| --- | ---|
-| Ireland (eu-west-1)<sup><small>[*]</small></sup> | `52.211.106.230` <br /> `52.18.20.119` <br /> `52.18.122.238` |
-| Frankfurt (eu-central-1) | `52.58.42.15` <br /> `35.157.102.14` <br /> `35.156.112.28` |
-| North Virginia (us-east-1) | `52.205.207.103` <br /> `52.55.243.62` <br /> `34.197.224.250` |
-| Tokyo (ap-northeast-1) |  `52.198.238.110` <br /> ` 13.113.58.15` <br /> ` 52.193.228.1` |
-| London (eu-west-2) | `35.177.185.47` <br /> ` 52.56.174.215` <br /> ` 18.130.169.15` |
-| Ireland (eu-west-1) | `52.18.10.62` <br /> ` 52.208.39.99` <br /> `99.80.177.69` |
+| Region | Location | IP Addresses |
+| --- | --- | ---|
+| Mendix Cloud V4 Free Tier EU | Ireland (eu-west-1) | `52.211.106.230` <br /> `52.18.20.119` <br /> `52.18.122.238` |
+| Mendix Cloud V4 EU  | Frankfurt (eu-central-1) | `52.58.42.15` <br /> `35.157.102.14` <br /> `35.156.112.28` |
+| Mendix Cloud V4 US | North Virginia (us-east-1) | `52.205.207.103` <br /> `52.55.243.62` <br /> `34.197.224.250` |
+| Mendix Cloud V4 Asia Pacific | Tokyo (ap-northeast-1) |  `52.198.238.110` <br /> ` 13.113.58.15` <br /> ` 52.193.228.1` |
+| Mendix Cloud V4 UK | London (eu-west-2) | `35.177.185.47` <br /> ` 52.56.174.215` <br /> ` 18.130.169.15` |
+| Mendix Cloud V4 IE | Ireland (eu-west-1) | `52.18.10.62` <br /> ` 52.208.39.99` <br /> `99.80.177.69` |
 
-<sup><small>*</small></sup> Free Apps cluster
-
-#### 2.2.2 Mendix Cloud V3 (XS4/BIT)
+#### 2.2.2 Mendix Cloud v3 (XS4/BIT)
 
 * `82.94.240.112/28`
 * `2001:888:2177::/48`

@@ -147,7 +147,7 @@ To consume the service using a Get request, follow these steps:
     Name | Argument
     --- | ---
     method | RestServices.HttpMethod.GET
-    url | 'https://www.rijksmuseum.nl/api/en/collection/?key=' + <API_Key> + '&format=json'
+    url | `https://www.rijksmuseum.nl/api/en/collection/?key=` + <API_Key> + `&format=json`
     optRequestData | $Query
     optResponseData | $newResults
     sendWithFormEncoding | false
@@ -176,7 +176,7 @@ In this section, you will create a microflow to hypothetically send data back to
     Name | Argument
     --- | ---
     method | RestServices.HttpMethod.POST
-    url | 'https://www.rijksmuseum.nl/api/en/collection/?key=' + <API_Key> + '&format=json'
+    url | `https://www.rijksmuseum.nl/api/en/collection/?key=` + <API_Key> + `&format=json`
     optRequestData | $Results (ideally you would name it Request)
     optResponseData | Add here the entity to which you can map the response (if a response is available from the service)
     sendWithFormEncoding | false
@@ -192,6 +192,5 @@ In this section, you will create a microflow to hypothetically send data back to
 * [Importing Excel Documents](importing-excel-documents)
 * [Exposing a Web Service](expose-a-web-service)
 * [Selenium Support](selenium-support)
-* [Synchronizing User Accounts Using the LDAP Module](synchronizing-user-accounts-using-the-ldap-module)
 * [Importing XML Documents](importing-xml-documents)
 

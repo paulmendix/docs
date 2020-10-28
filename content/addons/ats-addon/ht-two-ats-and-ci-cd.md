@@ -54,7 +54,7 @@ Continuous deployment is an excellent way to accelerate the feedback loop with y
 The CI/CD process ensures that everything committed is tested and deployed. An example:
 A Mendix developer commits a change into his team server branch. The branch is then automatically deployed into the test environment and tested. If the tests passes, the branch is deployed into the acceptance environment and also tested. You can even use Continuous Deployment to directly deploy to production and perform a regression test.
 
-## 4 ATS and CI/CD {#four}
+## 4 ATS & CI/CD {#four}
 
 ATS can do the testing of your Mendix app in the CI/CD pipeline. In ATS 2.0 a CI/CD API is added, so that customers can access their test cases or test suites from outside ATS. This way you can use a CI/CD tool to execute your test cases and test suites in ATS and retrieve the results. To access those specific test cases and test suites you must generate a CI/CD API key. This chapter explains how to generate a CI/CD API key for accessing ATS and how to generate a CI/CD template for a test case or test suite. The CI/CD template is a pre-configured test case or test suite with a set run configuration which can be fired from a CI/CD pipeline.
 
@@ -64,31 +64,28 @@ To generate a CI/CD API key follow these steps:
 
 1. Login to ATS 2.0.
 2. Open up the app you want to access for CI/CD.
-3. Inside your app open the profile menu and click **Show Test Settings**.
+3.  Inside your app open the profile menu and click **Show Test Settings**.
 
-![](attachments/ht-two-ats-and-ci-cd/show-test-settings.png)
+	![](attachments/ht-two-ats-and-ci-cd/show-test-settings.png)
 
 4. On the **Settings** page you find the **CI/CD API Key** section.
-5. Click **Generate new CI/CD API key**. You need this to get access to ATS in your CI/CD tool.
+5.  Click **Generate new CI/CD API key**. You need this to get access to ATS in your CI/CD tool.
 
-![](attachments/ht-two-ats-and-ci-cd/generate-new-ci-cd-api-key.png)
+	![](attachments/ht-two-ats-and-ci-cd/generate-new-ci-cd-api-key.png)
 
 6. A **confirmation** dialog box appears that warns you that an existing CI/CD API key will become invalid once you generate a new one.
-7. Click **Continue**.
+7.  Click **Continue**.
 
-![](attachments/ht-two-ats-and-ci-cd/confirmation-continu.png)
+	![](attachments/ht-two-ats-and-ci-cd/confirmation-continu.png)
 
-8. The **Your new API key:** dialog box appears. 
+8.  The **Your new API key:** dialog box appears. 
 
-{{% alert type="info" %}}
+	{{% alert type="info" %}} This is the only time ATS shows the API. Write it down in a secure place.
+	{{% /alert %}}
 
-This is the only time ATS shows the API. Write it down in a secure place.
+9.  Make sure you wrote down the API key. Now close the dialog box. 
 
-{{% /alert %}}
-
-9. Make sure you wrote down the API key. Now close the dialog box. 
-
-![](attachments/ht-two-ats-and-ci-cd/your-new-api-key.png)
+	![](attachments/ht-two-ats-and-ci-cd/your-new-api-key.png)
 
 Keep your API key at hand, you need it later on. 
 
@@ -100,23 +97,23 @@ To create a CI/CD template follow these steps:
 
 1. Login to ATS 2.0.
 2. Open up the app in which you find your test case or test suite.
-3. Inside your app click on the **Test Runs** navigation item.
+3. Inside your app click the **Test Runs** navigation item.
 4. Click the **CI/CD Templates** tab.
-5. Click either **Add Testcase** or **Add Testsuite** depending on what you want to execute.
+5.  Click either **Add Testcase** or **Add Testsuite** depending on what you want to execute.
 
-![](attachments/ht-two-ats-and-ci-cd/ci-cd-templates-tab.png)
+	![](attachments/ht-two-ats-and-ci-cd/ci-cd-templates-tab.png)
 
-6. The **Select Testcase** dialog box opens. Where you select your test case.
+6.  The **Select Testcase** dialog box opens. Where you select your test case.
 
- ![](attachments/ht-two-ats-and-ci-cd/ci-cd-template-select-test-case.png)
+	![](attachments/ht-two-ats-and-ci-cd/ci-cd-template-select-test-case.png)
 
-7. After selecting your test case the **New CI/CD Template** dialog box opens.  Here you select your run configuration and click **Save**.
+7.  After selecting your test case the **New CI/CD Template** dialog box opens.  Here you select your run configuration and click **Save**.
 
- ![](attachments/ht-two-ats-and-ci-cd/new-ci-cd-template.png)
+	![](attachments/ht-two-ats-and-ci-cd/new-ci-cd-template.png)
 
-8. After clicking **Save** the CI/CD template for test case appears with a unique ID.
+8.  After clicking **Save** the CI/CD template for test case appears with a unique ID.
 
- ![](attachments/ht-two-ats-and-ci-cd/ci-cd-template-with-uid.png)
+	![](attachments/ht-two-ats-and-ci-cd/ci-cd-template-with-uid.png)
 
 Keep the unique ID at hand for later on.
 
@@ -130,7 +127,7 @@ The CI/CD in ATS is using a webservice with authentication. Please use the stand
 
 Using the CI/CD API key and the unique ID of the CI/CD template you can execute a test case from your CI/CD pipeline. In this section, you find an example for Jenkins.
 
-## 5.1 Prerequisites
+### 5.1 Prerequisites
 
 * Have some Jenkins experience
 * Know how to configure CI/CD in ATS:
@@ -138,7 +135,7 @@ Using the CI/CD API key and the unique ID of the CI/CD template you can execute 
   * Create the CI/CD API key in ATS
   * Find your AppID in the Mendix Developer Portal
 
-## 5.2 Adding an Extra Step in Jenkins on a Linux Server
+### 5.2 Adding an Extra Step in Jenkins on a Linux Server
 
 This is only an example for Jenkins on Linux in shell scripting and can be written in another scripting language of your choice like for example Powershell (for Windows) or Groovy.
 
@@ -186,7 +183,7 @@ echo EMAILTEXT="Test Run Status is ${RESULT}" >> email.txt
 ```
 The last API call results in a "Passed" or "Failed", you can email this result or for example use the outcome in a conditional step for continuing deploying on different environments or failing this build. 
 
-## 5.3 Adding an Extra Step in Jenkins on a Windows Server
+### 5.3 Adding an Extra Step in Jenkins on a Windows Server
 
 This is only a PowerShell example for Jenkins on Windows, and it can be written in another scripting language of your choice.
 

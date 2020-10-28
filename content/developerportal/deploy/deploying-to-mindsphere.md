@@ -45,7 +45,7 @@ To deploy your app to MindSphere you need the following prerequisites.
 
 You must customize your app to allow it to be deployed to MindSphere, registered via the MindSphere Developer Cockpit, and shown in the launchpad. This is done through MindSphere customization modules. There are two ways to include the customization you need in your app.
 
-### 3.1 Option A: Using the MindSphere Starter App
+### 3.1 Option A: Using the MindSphere App Template
 
 The **MindSphere Starter Application** in the Mendix App Store contains all the modules and styling which you need to create an app you want to deploy to MindSphere.
 
@@ -75,11 +75,11 @@ Open Studio Pro (version 7.22.2 or above) and follow these steps:
 
 ### 3.2 Option B: Customizing an Existing App{#existingapp}
 
-If you have an existing app which was not based on the MindSphere starter app, you must import the required customization. The three modules which must be imported are:
+If you have an existing app which was not based on the MindSphere app template, you must import the required customization. The three modules which must be imported are:
 
 * MindSphere SSO from the Mendix App Store here: [Siemens MindSphere SSO](https://appstore.home.mendix.com/link/app/108805/)
 
-  This module enables users who are logged in to MindSphere to use your app without having to log in again. It also enables you to test your app locally. For more information, see the [Single Sign-On](/partners/siemens/mindsphere-module-details#mssso) section of *MindSphere Module Details*.
+  This module enables users who are logged in to MindSphere to use your app without having to sign in again. It also enables you to test your app locally. For more information, see the [Single Sign-On](/partners/siemens/mindsphere-module-details#mssso) section of *MindSphere Module Details*.
 
 * MindSphere OS Bar Connector from the Mendix App Store here: [Siemens MindSphere OS Bar Connector](https://appstore.home.mendix.com/link/app/108804/)
 
@@ -105,7 +105,47 @@ Enter the name of your app as registered in the MindSphere developer portal as t
 
 These two values must be identical and must, therefore, fit the constraints listed in the [App Name](/partners/siemens/mindsphere-development-considerations#appname) section of *MindSphere Development Considerations*.
 
-#### 4.1.2 RegisterSingleSignOn
+#### 4.1.2 MindSphereGatewayURL
+
+This is the URL of the MindSphere gateway and is of the following format:
+
+```http
+https://gateway.{Region}.mindsphere.io
+```
+
+This needs to be changed depending on the `{Region}` your app is running. The default value is for MindSphere running on **AWS**:
+
+```http
+https://gateway.eu1.mindsphere.io
+```
+
+If your app is running on Mindsphere on **Azure** change this constant to:
+
+```http
+https://gateway.eu2.mindsphere.io
+```
+
+#### 4.1.3 PublicKeyURL
+
+The value of this constant is shown below:
+
+```http
+https://core.piam.{Region}.eu1.mindsphere.io/token_keys
+```
+
+This needs to be changed depending on the `{Region}` your app is running. The default value is for MindSphere running on **AWS**:
+
+```http
+https://core.piam.eu1.mindsphere.io/token_keys
+```
+
+If your app is running on Mindsphere on **Azure** change this constant to:
+
+```http
+https://core.piam.eu2.mindsphere.io/token_keys
+```
+
+#### 4.1.4 RegisterSingleSignOn
 
 Add the *RegisterSingleSignOn* microflow as the **After startup** microflow or added as a sub-microflow of an existing *after startup* microflow.
 
@@ -134,7 +174,7 @@ Change the JSON to contain appropriate values for the following information:
 * appCopyright – app owner’s name and year of publication
 * links – links to additional information about the app
 
-More information on the structure and content of this JSON object, together with sample JSON, can be found in [App Information](https://developer.mindsphere.io/resources/osbar/resources-osbar-getting-started.html#app-information), on the MindSphere developer site.
+More information on the structure and content of this JSON object, together with sample JSON, can be found in [App Information](https://design.mindsphere.io/osbar/get-started.html#app-information), on the MindSphere developer site.
 
 ## 5 Deploying Your App to MindSphere
 
@@ -165,10 +205,10 @@ By default, the deployment package will be created in the *releases* folder of y
 
 To deploy your deployment package, do the following:
 
-1. Log in to MindSphere CF CLI using a one-time code:
+1. Sign in to MindSphere CF CLI using a one-time code:
 
-    * Enter `cf login -a https://api.cf.{region}.{mindsphere-domain} --sso`
-    * Open the URL printed by the CLI and log in using your WebKey credentials to get a One Time Code
+    * Enter `cf login -a https://api.cf.{Region}.{mindsphere-domain} --sso`
+    * Open the URL printed by the CLI and sign in using your WebKey credentials to get a One Time Code
     * Enter the One Time Code in the CLI
 
       {{% alert type="info" %}}If you need to configure proxies for Cloud Foundry, use the Windows `set` command. For example, `set http_proxy=http://my.proxy.ip:1234`.{{% /alert %}}
@@ -191,6 +231,8 @@ To deploy your deployment package, do the following:
 
     For more information see [Using the a9s PostgreSQL](https://developer.mindsphere.io/paas/a9s-postgresql/using.html) on the MindSphere developers site.
 
+    {{% alert type="warning" %}}Each Mendix app needs its own database. Do not bind more than one app to a database as both apps will not work properly. Create a new database instance instead.{{% /alert %}}
+
 4.  Depending on your infrastructure and service broker usage, it may take several minutes to create the service instance. Check if your PostgreSQL service has been created successfully using the following command:
     `cf services`
     Your service should be listed, and the last operation should be ‘create succeeded’.
@@ -209,6 +251,8 @@ To deploy your deployment package, do the following:
     ```
 
     {{% alert type="info" %}}`disk_quota_size` and `memory_size` must be at least **512M** to enable a Mendix app to run.<br />See the *Cloud Foundry* [App Manifest Attribute Reference](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html) for more information on valid specifications for memory and disk quota sizes.{{% /alert %}}
+
+    {{% alert type="warning" %}}Each Mendix app needs its own database. Do not bind more than one app to a database as both apps will not work properly. Create a new database instance instead.{{% /alert %}}
 
     For more information on the configuration of manifest files, see [Configuring the manifest file](https://developer.mindsphere.io/howto/howto-cf-single-manifest.html#configuring-the-manifest-file) on the MindSphere developers site.
 
@@ -286,11 +330,28 @@ To create a new app in the MindSphere launchpad, do the following:
 
 14.  Set the **Configurations > content-security-policy** *Value* to the following (hover your mouse over the text and you will be able to copy the contents to your clipboard):
 
-      ```http
-      default-src 'self' 'unsafe-inline' 'unsafe-eval' static.eu1.mindsphere.io sprintr.home.mendix.com; font-src 'self' static.eu1.mindsphere.io fonts.gstatic.com; style-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' static.eu1.mindsphere.io sprintr.home.mendix.com; img-src * data:;
+      If your app is running on MindSphere on **AWS** use Region `eu1`:
+
+      ```code
+      default-src 'self' 'unsafe-inline' 'unsafe-eval' static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com;
+      font-src 'self' static.eu1.mindsphere.io fonts.gstatic.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com;
+      style-src 'self' 'unsafe-inline' static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com fonts.googleapis.com;
+      img-src * data:;
+      connect-src 'self' 'unsafe-inline'  *;
+      ```
+      If your app is running on Mindsphere on **Azure** use Region `eu2`:
+
+      ```code
+      default-src 'self' 'unsafe-inline' 'unsafe-eval' static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com;
+      font-src 'self' data: *.eu2.mindsphere.io uistorageaccountprod.blob.core.windows.net static.eu1.mindsphere.io fonts.gstatic.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' *.eu2.mindsphere.io uistorageaccountprod.blob.core.windows.net static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com;
+      style-src 'self' 'unsafe-inline' *.eu2.mindsphere.io uistorageaccountprod.blob.core.windows.net static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com fonts.googleapis.com;
+      img-src 'self' static.eu1.mindsphere.io feedback-static.mendix.com home.mendix.com sprintr.home.mendix.com data: uistorageaccountprod.blob.core.windows.net;
+      connect-src 'self' 'unsafe-inline' *;
       ```
 
-      {{% alert type="info" %}}These content security policy (CSP) settings are needed to ensure that the MindSphere OS Bar and the [Mendix Feedback Widget](https://appstore.home.mendix.com/link/app/199/) are loaded correctly. You may need to set additional CSP settings if you make additional calls to other domains (for example, if you use Google maps from maps.googleapi.com).{{% /alert %}}
+      {{% alert type="info" %}}These content security policy (CSP) settings are needed to ensure that the MindSphere OS Bar and the [Mendix Feedback](/appstore/widgets/mendix-feedback) widget are loaded correctly. You may need to set additional CSP settings if you make additional calls to other domains (for example, if you use Google maps from maps.googleapi.com).{{% /alert %}}
 
       ![](attachments/deploying-to-mindsphere/image14.png)
 
@@ -312,7 +373,7 @@ To set up the appropriate scopes in MindSphere, do the following:
     ![](attachments/deploying-to-mindsphere/image15.png)
 
 {{% alert type="info" %}}
-If you are using the starter app, you should create two scopes, *user* and *admin*.
+If you are using the app template, you should create two scopes, *user* and *admin*.
 {{% /alert %}}
 
 For an explanation of the relationship between Mendix roles and MindSphere roles, see section [Roles & Scopes](/partners/siemens/mindsphere-module-details#rolesscopes) in *MindSphere Module Details*.
@@ -339,7 +400,7 @@ Once you have created the scopes for your app, you will need to assign them to t
     ![](attachments/deploying-to-mindsphere/image17.png)
 
 {{% alert type="info" %}}
-The user will have to log out and log in again for this assignment to take effect.
+The user will have to sign out and sign in again for this assignment to take effect.
 {{% /alert %}}
 
 {{% alert type="success" %}}

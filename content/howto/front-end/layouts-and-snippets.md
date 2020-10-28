@@ -22,8 +22,8 @@ This section describes what a layout consists of and what its value is.
 
 When you look at a page, you can see that a page consists of two important components:
 
-* Layout – the structure of the page (just like PowerPoint has one or more layout presets)
-* Content – what is displayed within the structure of the page
+* Layout — the structure of the page (just like PowerPoint has one or more layout presets)
+* Content — what is displayed within the structure of the page
 
 While modeling the pages, you select a layout when a page is created.
 
@@ -133,8 +133,8 @@ The simple menu bar widget shows a configured menu in the form of a horizontal b
 
 The items that are shown in the menu widget are determined by the menu source. A menu widget is either filled from a menu configured in the **Navigation** document or a **Menu** page resource: 
 
-* **Project** > **Navigation** – when selected, the menu items are taken from one of the menus defined in this document; use this for the main menu of your application
-* **Add Other** > **Menu ** – when selected, the menu items are taken from this page resource; use this menu for auxiliary menus
+* **Project** > **Navigation** — when selected, the menu items are taken from one of the menus defined in this document; use this for the main menu of your application
+* **Add Other** > **Menu ** — when selected, the menu items are taken from this page resource; use this menu for auxiliary menus
 
 When you have selected the project navigation as source, the device profile must be determined for the correct navigation menu:
 
@@ -203,11 +203,8 @@ In addition, a snippet can define an entity that serves as a context for the wid
 
 ## 7 Read More
 
-* [Perform the Scout and Windows 10 Workaround](perform-scout-and-windows-10-workaround)
+* [Atlas UI](atlas-ui)
 * [Use Layouts and Snippets](layouts-and-snippets)
-* [Set Up the Mendix UI Framework with Scout](setup-mendix-ui-framework-with-scout)
-* [Set Up the Mendix UI Framework with Koala](setup-mendix-ui-framework-with-koala)
-* [Set Up the Mendix UI Framework with Just CSS](setup-mendix-ui-framework-with-just-css)
 * [Set Up the Navigation Structure](../general/setting-up-the-navigation-structure)
 * [Create Your First Two Overview & Detail Pages](create-your-first-two-overview-and-detail-pages)
 * [Find the Root Cause of Runtime Errors](../monitoring-troubleshooting/finding-the-root-cause-of-runtime-errors)

@@ -40,7 +40,7 @@ You can get this sort of error in two circumstances:
 
     Search for the correct platform version, and the file referred to in the error message.
 
-    If the files are missing, you should re-install the server distribution (tar.gz file) and confirm that the files are now in the right place.
+    If the files are missing, you should re-install the server distribution (*tar.gz* file) and confirm that the files are now in the right place.
 
 2.  The Mendix service cannot access the files
 
@@ -52,7 +52,7 @@ This section describes a few common problems that people have run into when sett
 
 We cannot provide a solution here for all the problems you may find. Use the techniques below to isolate the cause of your problem. If the solution is not clear, there are many resources on the internet which can help you to solve your specific issue.
 
-You can also ask for help on the [Mendix forum](https://forum.mendixcloud.com/index4.html).
+You can also ask for help on the [Mendix Forum](https://forum.mendixcloud.com/index4.html).
 
 If you have some useful tips, please feel free to add them to this document.
 
@@ -155,5 +155,4 @@ Make sure that the user account used to run the service has enough rights to the
 *   [Debugging Java actions remotely](/howto/monitoring-troubleshooting/debug-java-actions-remotely)
 *   [Log Levels](/howto/monitoring-troubleshooting/log-levels)
 *   [Debugging Java Actions](/howto/monitoring-troubleshooting/debug-java-actions)
-*   [Common Mendix SSO Errors](/howto/monitoring-troubleshooting/handle-common-mendix-sso-errors)
 *   [Debugging Microflows](/howto/monitoring-troubleshooting/debug-microflows)

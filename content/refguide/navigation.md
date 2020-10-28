@@ -17,7 +17,7 @@ A user's home page can vary based on their [user roles](user-roles).
 
 ## 2 Profiles {#profiles}
 
-At the heart of the navigation model in Mendix, there are seven types of profiles:
+At the heart of the navigation model in Mendix, these are the available profiles:
 
 * Responsive
 * Hybrid tablet app online
@@ -34,13 +34,13 @@ The device type of the currently logged-in user is available in [microflows](mic
 
 ### 2.1 Responsive
 
-Every app always has one profile of a Responsive type which cannot be deleted. This is the default profile used by a Mendix app.
+Every app always has one profile of a Responsive type which cannot be deleted. This is the default profile used by a Mendix app. This profile can be used to make web applications.
 
 ### 2.2 Hybrid Profiles {#hybrid-profiles}
 
-A Mendix app can be installed on a tablet or phone as an app by creating a PhoneGap hybrid package. Hybrid profiles can be accessed from such a PhoneGap app. Hybrid app profiles are determined by device type (phone or tablet) and by the offline accessibility feature enabled (online or offline). If no profile exists with the requested combination, an error will be displayed in the app.
+A Mendix app can be installed on a tablet or phone as an app by creating a [local build](/developerportal/deploy/mobileapp#publish) hybrid package. Hybrid profiles can be accessed from such a locally built app. Hybrid app profiles are determined by device type (phone or tablet) and by the offline accessibility feature enabled (online or offline). If no profile exists with the requested combination, an error will be displayed in the app.
 
-Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline first](offline-first).
+Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline First](offline-first).
 
 Four different hybrid profiles are available:
 
@@ -51,15 +51,17 @@ Four different hybrid profiles are available:
 
 ### 2.3 Tablet Browser
 
-All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the Tablet browser type. If no profile exists of that type, the user will be redirected to the Responsive profile.
+All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the Tablet browser type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
 
 ### 2.4 Phone Browser
 
-All the users accessing the Mendix app from a browser on a phone will automatically be redirected to a profile of the Phone browser type. If no profile exists of that type, the user will be redirected to the Responsive profile.
+All the users accessing the Mendix app from a browser on a phone will automatically be redirected to a profile of the Phone browser type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
 
 ### 2.5 Native Phone
 
 A Mendix app can be installed on a phone as a native application which has the benefit of a more responsive UI. The app will also be [offline-first](offline-first), which means all the data is stored on the phone and only synchronized with the server on request.
+
+You are required to enable anonymous users in your project's security settings and include anonymous user roles on native login pages. This is because there is no built-in login screen in the native profile; login pages are modeled as regular native pages. 
 
 ## 3 Redirection to Profiles {#redirection}
 
@@ -71,7 +73,7 @@ Mendix Runtime automatically redirects users to the home page of the appropriate
 | Android&#124;iPad | Tablet |
 | _(other)_ | Responsive |
 
-To configure the regular expressions used to match phone or tablet users, see [Custom Settings](custom-settings).
+To configure the regular expressions used to match phone or tablet users, see [Runtime Customization](custom-settings).
 
 It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles, which are Responsive, Tablet, Phone, HybridTablet, and HybridPhone. For example:
 
@@ -88,6 +90,10 @@ A profile can be added with the **Add navigation profile** button. Only one prof
 #### 4.1.1 Application Title
 
 This specifies the application title. This title is shown in the title bar of the browser.
+
+#### 4.1.2 Application Icon
+
+This specifies the application icon. This icon is shown in the title bar and bookmarks of the browser. It can only be set in the Responsive profile, but will also be used by the other browser profiles.
 
 ### 4.2 Home Pages
 
@@ -112,9 +118,7 @@ If the sign-in page is set to none, a built-in pop-up window will appear instead
 Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
 
 {{% alert type="warning" %}}
-
 If [security](project-security) is enabled, the menu will only show the items to which the user has access.
-
 {{% /alert %}}
 
 ### 4.3 Profile Buttons
@@ -127,16 +131,13 @@ Allows for changing the [profile type](navigation).
 
 This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
 
-#### 4.3.2 Sync configuration
+#### 4.3.2 Synchronization Configuration {#customize}
 
 Only available on profiles supporting offline synchronization.
 
-This opens the **Customize offline synchronziation** dialog which is used for overriding offline synchronization settings for specific entities. For each entity the download setting is shown. A default is automatically determined by analyzing the model, but can be overridden in which case the setting will appear in boldface. The download settings are one of the following:
+This opens the **Customize offline synchronization** dialog box that is used for overriding offline synchronization settings for specific entities. For each entity the download setting is shown. A default is automatically determined by analyzing the model, but can be overridden in which case the setting will appear in boldface. For more details on the settings and when to use them, see the [Offline-First Reference Guide](offline-first#customizable-synchronization).
 
-* All objects – download all objects of this entity type
-* By XPath – download only those objects matching the specified [XPath constraint](xpath-constraints) 
-* Nothing – download none of the objects of this entity type
-  ![](attachments/navigation/customize-offline-synchronization.png)
+![](attachments/navigation/customize-offline-synchronization.png)
 
 ## 5 Read More
 

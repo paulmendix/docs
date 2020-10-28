@@ -4,7 +4,7 @@ category: "Settings"
 description: "Describes security and roles and permissions in Mendix Studio."
 menu_order: 10
 tags: ["studio", "security", "roles and permissions"]
-#If moving or renaming this doc file, implement a temporary redirect and let the respective team know they should update the URL in the product. See Mapping to Products for more details.
+#If moving or renaming this doc file, implement a temporary redirect and let the respective team know they should update the URL in the product. See Mapping to Products for more details.#The anchor <upgrade> below is mapped, so it should not be removed or changed.
 ---
 
 ## 1 Introduction 
@@ -17,7 +17,7 @@ Security is a way of controlling access to your app. For example, you can decide
 
 Whether security is enabled for your app by default, depends on app's type and version. You can come across the following cases:
 
-1. If your app has been created in the Developer Portal with Mendix version 7.23.3 or above, you can enable security in Studio and view and edit [roles and permissions](#roles-and-permissions). For more information on versions, see [Studio Version & Mendix Version Correlation](general-versions)
+1. If your app has been created in the Developer Portal with Mendix version 7.23.3 or above, you can enable security in Studio and view and edit [roles and permissions](#roles-and-permissions). For more information on versions, see [Studio Ranges & Mendix Versions](general-versions)
 
 2. If your app has been created in the Developer Portal with Mendix version below 7.23.3, or has been labelled as private content, or has been customized by your team specifically for your company, the security state depends on Studio Pro:<br/>
     a.  If security is off in Studio Pro, then you can enable security in Studio. In this case, when you try to [publish the app](publishing-app), you will be prompted to enable security. <br/>
@@ -25,7 +25,7 @@ Whether security is enabled for your app by default, depends on app's type and v
 	{{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
 	{{% /image_container %}}<br/>
 
-    b. If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (For more information on what security settings are compatible with Studio, see the [Studio Compatibility](/refguide/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
+    b. If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (For more information on what security settings are compatible with Studio, see the [Studio Compatibility](/refguide/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
@@ -73,7 +73,11 @@ The **Roles and Permissions** screen consist of three tabs:
 
 The **Roles** tab lists all roles and indicates the number of pages and microflows these roles can access. 
 
-The **Page Access** and **Microflow Access** tabs contain a table where all pages/microflows are listed in rows, and all roles are placed in columns. You can decide which pages and microflows a particular role can access: tick/untick the box per document to grant/restrict access for it. To select/deselect all documents click on the **More Options** icon next to the user role.
+The **Page Access** and **Microflow Access** tabs contain a table where all pages/microflows are listed in rows, and all roles are placed in columns. 
+
+You can allow only certain roles to access a page or microflow: select the appropriate box to grant access for a role to a page or microflow. 
+
+To select/deselect all pages or microflows click the ellipsis icon next to the user role.
 
 As a result, you will get a matrix specific for each role. 
 
@@ -89,7 +93,7 @@ To create a new app role, do the following:
 
     ![](attachments/settings-security/add-role-button.png)
 
-3.  Specify the name of the new role in the **Create Role** dialog window and click **Create**.
+3.  Specify the name of the new role in the **Create Role** dialog box and click **Create**.
 
     ![Create Role Dialog Box](attachments/settings-security/create-role-dialog.png)
 
@@ -149,7 +153,7 @@ There are two ways to set access for specific pages/microflows in your app:
 
 	![](attachments/settings-security/permissions-section.png)
 
-## 4 Demo Users
+## 4 Demo Users {#demo-users}
 
 Demo users are a demonstration of each user role existing in your app. You can use demo users to review how your app looks like for each user role. For more technical information, see [Demo Users](/refguide/demo-users). 
 
@@ -159,7 +163,7 @@ You can test how your app looks like for different roles the following way:
 
 1. [Preview your app](publishing-app).
 
-2. Click a user icon in the right-hand side of the screen:
+2. Click a user icon in the right side of the screen:
 
     ![](attachments/settings-security/user-icon.png)
 
@@ -189,7 +193,23 @@ People invited to join your App Team in the Developer Portal are not added as Ap
 If you have created a new user role on the **Roles and Permissions** page, you need to publish the app first to be able to see and assign this role in the Developer Portal.
 {{% /alert %}}
 
-## 6 Read More
+## 6 Auto-Upgrade to the New Service {#upgrade}
+
+When you try to publish your app, you may be notified that upgrade of the service that secures your app is required first:
+
+{{% image_container width="300" %}}
+![Upgrade Required](attachments/settings-security/upgrade.png)
+{{% /image_container %}}
+
+A special service makes it possible to manage your app users. As of April 1st, 2020 we are replacing the current service with an improved one. This upgrade will be done automatically for you when you click **Auto-Upgrade**. 
+
+No need to worry if you do not auto-upgrade, your app will still be secured and running, however, you will not be able to publish a newer version of your app until you upgrade. 
+
+If the automatic upgrade fails, this means, the service was customized in Studio Pro, and only manual upgrade in Studio Pro is possible in this case. 
+
+If the auto-upgrade detects that the service was customized in Studio Pro by a team member, you will be notified that a manual upgrade in Studio Pro should be performed first. For more technical information on how to upgrade the service in Studio Pro, see [Upgrading to Mendix SSO from AppCloudServices](/developerportal/deploy/upgrading-to-mendix-sso-from-acs).
+
+## 7 Read More
 
 * [Security](/refguide/security)
 * [Model Changes When Security Is Enabled in Studio](/refguide/studio-security-enabled)

@@ -9,7 +9,7 @@ tags: ["Scheduled Event", "Execution properties", "Timing", "intervals", "schedu
 
 With scheduled events you can let the runtime execute a microflow at a specific moment in time. The event can also be repeated with a given interval, for example every day.
 
-A scheduled event is added to your module as a document (right-click on your module and you will find it listed under *Add other...*).
+A scheduled event is added to your module as a document (right-click your module and you will find it listed under *Add other...*).
 
 {{% alert type="warning" %}}
 Scheduled events can be tested locally, but they will not be run if your app is deployed as a Free App. See the Free App section of [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy#free-app) for more information on Free App limitations.
@@ -40,7 +40,7 @@ Scheduled events can be tested locally, but they will not be run if your app is 
 
 ### Additional information
 
-The platform schedules the scheduled event by fixed intervals. That means that at startup, the platform schedules the next iterations/intervals the scheduled event should run. This is done by retrieving the intervals, and in addition the platform does some calculations.
+The platform schedules the scheduled event by fixed intervals. That means that at startup, the platform schedules the next iterations/intervals the scheduled event should run. This is done by retrieving the intervals, and in addition the platform does some calculations. If your app is starting slowly, one reason might be that one or more scheduled events have a **Start date/time** far in the past. In such a case, it can help to set a more recent **Start date/time** for these scheduled events.
 
 Seconds, Minutes, Hours, Days, and Weeks are scheduled exactly as configured. However, Months and Years might not be executed as you would expect. A month is interpreted as a 31 day interval, a year as a 365 day interval.
 

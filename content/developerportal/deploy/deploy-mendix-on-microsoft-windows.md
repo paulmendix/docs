@@ -112,7 +112,7 @@ To deploy a Mendix app using the Mendix Service Console, follow these steps:
 
     ![](attachments/deploy-mendix-on-windows/18580727.png)
 
-6. Now select the **MDA** file that was created in Studio Pro and contains your application logic. After the installation of your MDA file, you will see which Mendix server (Mendix runtime) version is needed.
+6. Now select the **MDA** file that was created in Studio Pro and contains your application logic. After the installation of your MDA file, you will see which Mendix server (Mendix Runtime) version is needed.
 
 7. Configure the **Database Settings**:
 
@@ -345,7 +345,7 @@ Afterwards, the contents of this file will be similar to the following example:
 </configuration>
 ```
 
-## 6 Preserving the Host Header
+## 6 Preserving the Host Header{#preserve-header}
 
 To make sure the correct application root URL is used within your web services, you must make sure the host header contains the original host header from the client request. To make sure the host header is preserved, follow these steps.
 

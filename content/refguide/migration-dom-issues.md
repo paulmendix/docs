@@ -20,13 +20,17 @@ When you upgrade to Mendix 8, DOM structure changes will also alter the correlat
 
 Before Mendix 8, the client provided a large amount of default styling if your app project lacked a theme. This made building your own theme difficult, as you needed to override the default styling. As of Mendix 8, all styling has been moved to AtlasUI. Now, building your own theme from scratch requires significantly less work.
 
-If you have already built your own theme from scratch in an earlier version of Mendix, you might depend on the default styling (specifically the Bootstrap files and the **mxui.css** file) which are not included in Mendix 8 applications by default. For this case, Mendix provides legacy **mxui.css** and Bootstrap files with defaults in this [GitHub repository](https://github.com/mendix/legacy-mxui-css). Downloading files from this repository will enable your custom theme.
+If you have already built your own theme from scratch in an earlier version of Mendix, you might depend on the default styling (specifically the Bootstrap files and the **mxui.css** file) not included in Mendix 8 applications by default. For this case, Mendix provides legacy **mxui.css** and Bootstrap files with defaults in this [GitHub repository](https://github.com/mendix/legacy-mxui-css). Download files from this repository to enable your custom theme.
+
+{{% alert type="info" %}}
+If you get an error message `CE6103: We detected that you are not using Atlas UI for your theme. Please check 'Troubleshooting DOM  Changes' to ensure your theme is fully compliant with Mendix 8. Right-click to see more options`, you can clear the message by right-clicking it and selecting **Mark as Resolved**.
+{{% /alert %}}
 
 ## 4 Focus-Specific Class Removed
 
 Before Mendix 8, the client frequently applied `mx-focus` to the element receiving focus and removed `mx-focus` when the element lost focus. Because all supported browsers now have proper support for the `:focus` pseudo-class, these reapplications are no longer necessary.  For more information on `:focus`, see Mozilla’s [:focus documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus).
 
-If your are using `mx-focus` in your theme, you should replace it with `:focus` .
+If your are using `mx-focus` in your theme, you should replace it with `:focus`.
 
 Code such as this:
 
@@ -48,16 +52,30 @@ Should be changed to:
 
 We made a number of updates to the data grid markup. Previously, the data grid was split into two separate tables: one containing the header and one containing the data. This made the data grid less accessible, because screen readers show these as two separate tables. Now the two tables have been merged into a single table. Furthermore, the `div` wrapping the two tables has been removed.
 
-One more data grid markup change is that the `div` containing the toolbar and the `div` containing the paging bar (both part of the control bar) are now in a logical order. Previously, additional CSS was needed to display them in the right order, and additional JavaScript was needed to dictate a logical tab behavior. The current structure now falls in line with [Web Content Accessibility Guidelines 2.1's criterion 1.3.2](https://www.w3.org/TR/WCAG21/#meaningful-sequence) by having [the DOM order follow the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html).
+Another data grid markup change is that the `div` containing the toolbar and the `div` containing the paging bar (both part of the control bar) are now in a logical order. Previously, additional CSS was needed to display them in the right order, and additional JavaScript was needed to dictate a logical tab behavior. The current structure now falls in line with [Web Content Accessibility Guidelines 2.1's criterion 1.3.2](https://www.w3.org/TR/WCAG21/#meaningful-sequence) by having [the DOM order follow the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html).
+
+With new accessibility features implemented, now `div` containing pagination section (inside of control bar) has appropriate `role` attribute set. Buttons inside of this `div`, including the `div` itself, now has translatable `aria-label` attributes which can be set from Modeler's `System Texts` page with category name `Accessibility`. New `span` and `caption` elements added as a sibling to *`buttons` for pagination* and `thead` respectively. They are only visible to screen readers. 
 
 This is the current markup of the data grid (unchanged code omitted):
 
 ```html
 <div class="mx-grid mx-datagrid mx-name-grid1">
 	<div class="mx-grid-searchbar" style="display: none;">...</div>
-	<div class="mx-grid-controlbar">...</div>
+	<div class="mx-grid-controlbar">
+		...
+		<div ... role="navigation" aria-label="Pagination(translatable text)">
+			<button ...  aria-label="Go to first page(translatable text)"> </button>
+			<button ... aria-label="Go to previous page(translatable text)"></button>
+			<div ... aria-hidden="true">1 to 20 of 132</div> 
+				<span class="sr-only">Currently showing(translatable text) 1 to 20 of 132</span>
+			<button ... aria-label="Go to next page(translatable text)"></button>
+			<button ... aria-label="Go to last page(translatable text)"></button>
+		</div>
+		...
+	</div>
 	<div class="mx-grid-content">
 		<table>
+			<caption class="sr-only">Caption</caption>
 			<colgroup>...</colgroup>
 			<thead>
 				<tr class="mx-name-head-row"></tr>
@@ -333,7 +351,7 @@ Radio buttons:
 </div>
 ```
 
-Drop down:
+Drop-down:
 
 ```html
 <select class="form-control">
@@ -422,8 +440,8 @@ The following changes have been made to the input reference set selector markup:
 
 The following changes have been made to the `DropDownButton` widget:
 
-* The class `mx-list` has been removed from the list of terms in the dialog window
-* The class `mx-dropdown` has been removed from the dialog window, as it has nothing to do with drop down in the search input
+* The class `mx-list` has been removed from the list of terms in the dialog box
+* The class `mx-dropdown` has been removed from the dialog box, as it has nothing to do with drop-down in the search input
 
 ## 13 File Manager and Image Uploader Widget Changes
 

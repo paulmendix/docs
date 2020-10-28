@@ -1,12 +1,12 @@
 ---
-title: "Use XML in Widget Development"
+title: "Build Widgets with XML"
 parent: "widget-development"
 tags: ["xml", "widget"]
 ---
 
 ## 1 Requirements
 
-This document assumes you have a basic understanding of XML and Mendix Studio Pro. For more information on XML, visit [W3 Schools - XML](http://w3schools.com/xml/). To learn more about Mendix Studio Pro, watch the [Getting Started](https://gettingstarted.mendixcloud.com/index.html) videos.
+This document assumes you have a basic understanding of XML and Mendix Studio Pro. For more information on XML, visit [W3 Schools - XML](http://w3schools.com/xml/).
 
 ## 2 Start of the Widget XML
 
@@ -57,7 +57,7 @@ Every property element contains at least the following 3 child elements.
 | --- | --- |
 | Caption | This element is used to add the name of the property. This is how it will show up in the Properties list in Mendix Studio Pro. |
 | Category | This element defines in what category this property will be shown in the Properties list in Mendix Studio Pro. Common categories are “Behavior”, “Appearance” and “Data source”. |
-| Description | This element is used to add a useful description of the property, so the end user knows what it’s for. |
+| Description | This element is used to add a useful description of the property, so the end-user knows what it’s for. |
 
 ### 4.2 Attributes
 
@@ -110,10 +110,10 @@ An attribute property has an extra required child element: a list of attributeTy
 *   AutoNumber
 *   Binary
 *   Boolean
-*   DateTime
+*   Date and time
 *   Decimal
-*   Enum
-*   HashString
+*   Enumeration
+*   Hashed String
 *   Integer
 *   Long
 *   String
@@ -162,7 +162,7 @@ The EntityConstraint lets you put a constraint on either the entity you specify 
 
 The enumeration property has an extra required child element: a list of enumerationValues. An enumerationValue contains a **key** attribute and a **caption** within their tag.
 
-This presents the user with a dropdown list of options, based on the **captions** in Mendix Studio Pro. The **keys** will reach your widget's JavaScript as an enumeration.
+This presents the user with a drop-down list of options, based on the **captions** in Mendix Studio Pro. The **keys** will reach your widget's JavaScript as an enumeration.
 
 It requires a default value to be set, which should correspond with one of the enumerationValue keys.
 
@@ -246,7 +246,7 @@ Possible return types are shown below:
 *   Void
 *   Boolean
 *   Integer
-*   DateTime
+*   Date and time
 *   String
 *   Object
 
@@ -274,7 +274,7 @@ Possible return types:
 *   Void
 *   Boolean
 *   Integer
-*   DateTime
+*   Date and time
 *   String
 *   Object
 
