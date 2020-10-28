@@ -2401,6 +2401,10 @@ module.exports = {
       from: "/refguide/web-modeler/app-settings-wm",
       to: "/studio/settings-widget-overview"
     },	
+	{
+      from: "/studio/general-collaborative-development",
+      to: "/studio/collaborative-development"
+    },
     {
       from: "/howto/sap/use-sap-odata-model-creator",
       to: "/partners/sap/use-sap-odata-model-creator"
@@ -2461,12 +2465,16 @@ module.exports = {
      ****************************************************/
 	{
   	   from: "/data-hub/data-hub-catalog/use-data-catalog",
-   	   to: "/data-hub/general/share-data",
+   	   to: "/data-hub/share-data/index",
   	},
 	{
+      from: "/datahub/general/share-data/",
+      to: "/data-hub/share-data/index"
+    },
+	{
   	   from: "/data-hub/data-catalog/",
-	   to: "/data-hub/data-hub-catalog/"
-  	},
+	   to: "/data-hub/index"
+    },
 	/****************************************************
      * From the App Store (permanent, mapped)
      ****************************************************/

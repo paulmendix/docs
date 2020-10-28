@@ -7,7 +7,7 @@ tags: ["studio", "studio pro"]
 
 ## 1 Introduction {#studio-overview}
 
-Mendix Studio is the place where you can create, view and edit your Mendix applications without going into technical details. For this purpose you can use the [Studio Pro](/refguide/modeling) and [develop apps together with Studio Pro users](general-collaborative-development) anytime. 
+Mendix Studio is the place where you can create, view and edit your Mendix applications without going into technical details. For this purpose you can use the [Studio Pro](/refguide/modeling) and [develop apps together with Studio Pro users](collaborative-development) anytime. 
 
 With Studio you can create and edit applications in your browser without installing software on your PC.   
 
@@ -17,43 +17,24 @@ The picture below shows the components of Studio's interface:
 
 ## 2 Opening Studio
 
-You can open Mendix Studio [via the Developer Portal](#opening-studio-via-dev-portal) or [via Studio Pro](#opening-via-studio-pro). 
+You can open Mendix Studio via [Developer Portal](#opening-studio-via-dev-portal) or [Studio Pro](#opening-via-studio-pro). 
 
-### 2.1 Opening Studio via the Developer Portal {#opening-studio-via-dev-portal}
+### 2.1 Opening Studio via Developer Portal {#opening-studio-via-dev-portal}
 
-You can edit an app in Mendix Studio by opening your app in the [Developer Portal](https://home.mendix.com) and clicking **Edit App** or choosing the **Edit in Mendix Studio** option in the drop-down menu of the **Edit App** button. 
+You can edit an app in Mendix Studio by opening your app in [Developer Portal](https://home.mendix.com) and clicking **Edit in Studio**:
 
-{{% image_container width="350" %}}![](attachments/general/edit-app-button.png)
-{{% /image_container %}}
+![](attachments/general/edit-app.jpg)
 
-{{% alert type="warning" %}}
-
-The drop-down menu on the **Edit App** button is only available for **Free Apps**. For more information on what Free Apps are, see the [Free App](/developerportal/deploy/mendix-cloud-deploy#free-app) section in *Mendix Cloud*.  
-
-Some apps are not suitable for Studio. The following ones are not suitable to run in Studio:<br />
-
-* Apps below **Mendix 7.5** version<br />
-* Apps that are not based on the Atlas UI framework
-
-{{% /alert %}}
-
-When Studio is not enabled, you can click **Edit App** > **Settings**. For more information on how to enable Studio, see [Developer Portal Settings](../../developerportal/settings).
-
-![](attachments/general/not-enabled.png)
-
-{{% alert type="info" %}}
-Only Scrum Masters or custom **App Team roles** with the **App Settings** permission are allowed to enable Studio.
-{{% /alert %}}    
+If you do not see **Edit in Studio**, go to [General Settings](/developerportal/settings/general-settings) in the Developer Portal and [enable Studio](/developerportal/settings/general-settings#web).
 
 ### 2.2 Opening Studio via Studio Pro {#opening-via-studio-pro}
 
 You can also open your app in Studio via Studio Pro. Do the following:
 
 1. In Studio Pro, open the project in that you want to view in Studio.
-
 2.  Click the globe icon in the top right corner (only available if Studio is enabled).
 
-    ![](attachments/general/globe-icon.png)
+	![](attachments/general/globe-icon.png)
 
 The app opens in Studio.
 
@@ -118,7 +99,7 @@ The **Toolbox**, **Properties** , and **Buzz** tabs are described in the table b
 | ------------ | ------------------------------------------------------------ |
 | Toolbox      | Shows tools available for the current editor.                |
 | Properties   | Shows the properties of the selected item.                   |
-| [Buzz](buzz) | Allows an app development team to make comments to different pages, microflows, domain models, and layouts of Studio, and interact with each other. |
+| [Buzz](collaboration-buzz) | Allows an app development team to make comments to different pages, microflows, domain models, and layouts of Studio, and interact with each other. |
 
 ## 7 Top Menu Bar
 
@@ -165,6 +146,6 @@ Mind the following characteristics when using cut/copy/paste:
 
 ## 9 Main Documents in This Category
 
-* [Collaborative Development in Studio](general-collaborative-development) – provides you with information on how team members work together on one project in Mendix Studio Pro and Mendix Studio 
+* [Collaborative Development in Studio](collaborative-development) – provides you with information on how team members work together on one project in Mendix Studio Pro and Mendix Studio 
 
 * [Studio Ranges & Mendix Versions](general-versions) – explains how Studio version correlates to the Mendix version

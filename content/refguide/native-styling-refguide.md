@@ -107,7 +107,6 @@ The widget’s style properties are as follows:
 | `listItem`  | All ViewStyle properties |          |
 | `listItem`  | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the item has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`). |
 | `listItem`  | `underlayColor` | This is the color while pressing the item on iOS, and will be applied only when the item has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `listItem`  | `activeOpacity` | This is the opacity to be applied while pressing the item on iOS, this only works if combined with `underlayColor`. |
 | `listItemDisabled`  | Same properties as `listItem` | Overrides `listItem` styles if the item has an on click action and the action cannot be executed or is disabled during action. |
 
 The default class to style all list views is named `ListView`.
@@ -148,7 +147,6 @@ The image widget can be used to show a predefined image on a page, layout, or sn
 | `container` | This has all ViewStyle properties.  |       |
 | `container`  | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the container has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`). |
 | `container`  | `underlayColor` | This is the color while pressing the container on iOS, and will be applied only when the container has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `container`  | `activeOpacity` | This is the opacity to be applied while pressing the container on iOS, this only works if combined with `underlayColor`. |
 | `containerDisabled` | Same properties as `container` | Overrides `container` styles if the image has an on click action and the action cannot be executed or is disabled during action. |
 | `image`     | This has all ImageStyle properties. |       |
 | `imageDisabled` | Same properties as `image` | Overrides `image` styles if the image has an on click action and the action cannot be executed or is disabled during action. |
@@ -233,7 +231,6 @@ A container widget can be used to style or hide a group of widgets. This widget 
 | `container` | This has all ViewStyle properties. |        |
 | `container` | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the container has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`). |
 | `container`  | `underlayColor` | This is the color while pressing the container on iOS, and will be applied only when the container has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `container`  | `activeOpacity` | This is the opacity to be applied while pressing the container on iOS, this only works if combined with `underlayColor`. |
 | `containerDisabled` | Same properties as `container` | This overrides `container` styles if the there is an on click action set and the action cannot be executed or is disabled during action. |
 
 The default class to style all page titles is named `Container`.
@@ -251,6 +248,7 @@ This is how the widget’s code is structured:
 	<tabBar>
 		<tab>
 			<activeLabel>PAGE 1</activeLabel>
+			<badgeContainer><badgeCaption /></badgeContainer>
 		</tab>
 		<tab>
 			<label>PAGE 2</label>
@@ -276,6 +274,8 @@ The widget’s style properties are as follows:
 | `tab`       | This has all ViewStyle properties. |     |
 | `label`     | This has all TextStyle properties. |     |
 | `activeLabel`     | This has all TextStyle properties. |     |
+| `badgeContainer`  | This has all ViewStyle properties. |     |
+| `badgeCaption`    | This has all TextStyle properties. |     |
 
 The default class to style all tab containers is named `TabContainer`.
 
@@ -328,6 +328,7 @@ The widget’s style properties are structured as follows:
 | `input` | `placeholderTextColor` | This is the text color of the placeholder string. |
 | `input` | `selectionColor` | This is the highlight and cursor color of the text input. |
 | `input` | `underlineColorAndroid` | This is the color of the `input` underline. |
+| `inputFocused` | Same properties as `input` | Overrides `input` styles if the text box is focused (with Studio Pro v8.15). |
 | `inputError` | This has the same properties as `input` | Overrides `input` styles if there are validation errors. |
 | `inputDisabled` | Same properties as `input` | Overrides `input` styles if the text box is non-editable. |
 | `label` | This has all TextStyle properties |   |
@@ -349,7 +350,7 @@ The default class to style all text areas is named `TextArea`.
 
 A drop-down is an input widget that can be used to display and edit enumeration attributes.
 
-Since Studio version 8.11, the drop-down widget has a new style property called `useUniformDesign: boolean` which enables the uniform design in both platforms.
+Since Studio Pro v8.11, the drop-down widget has a new style property called `useUniformDesign: boolean` which enables the uniform design in both platforms.
 
 The widget’s render hierarchy is as follows for non-uniform:
 
@@ -377,6 +378,7 @@ The widget’s render hierarchy is as follows for uniform:
 	<label>Drop down enumeration</label>
     <valueContainer>
         <value>First</value>
+	<icon/>
     </valueContainer>
 	<validationMessage>Validation feedback enumeration</validationMessage>
 </container>
@@ -403,25 +405,19 @@ The widget’s render hierarchy is as follows for uniform:
 | `pickerIOS` | This has all ViewStyle properties. |  |
 | `pickerBackdropIOS` | This has all ViewStyle properties. |   |
 | `pickerTopIOS` | This has all ViewStyle properties. |   |
-| `validationMessage` | This has all TextStyle properties. | Styles the validation message (with Studio version 8.11)|
+| `validationMessage` | This has all TextStyle properties. | Styles the validation message (with Studio Pro v8.11).|
 | `value`  | This has all TextStyle properties  | Styles the value button which toggle's dropdown and PickerIOS items. If placeholder is selected, placeholderTextColor will be applied |
-| `useUniformDesign` | `boolean` | Enables new uniformDesign (with Studio version 8.11) |
-| `value`  | `placeholderTextColor: string` | If placeholder is selected, placeholderTextColor will be applied (with Studio version 8.11)|
-| `value` | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the drop-down is pressed (defaults to `rgba(0, 0, 0, 0.2)`). |
-| `value`  | `underlayColor` | This is the color while pressing the drop-down on iOS, if not set it will be defaulted to opacity only. |
-| `value`  | `activeOpacity` | This is the opacity applied while pressing the drop-down iOS, this only works if combined with `underlayColor`. |
-| `valueDisabled` | Same properties as `value` | Overrides `value` styles if the drop-down is non-editable |
-| `valueContainer` | This has all ViewStyle properties & rippleColor | Styles the value button's container (with Studio version 8.11)|
-| `valueContainerDisabled` | Same properties as `valueContainer` | Overrides `valueContainer` styles if the drop-down is non-editable |
-| `menuWrapper` | This has all ViewStyle properties | Styles the wrapper view surrounding all the menu items (with Studio version 8.11)|
-| `itemContainer` | This has all ViewStyle properties | Styles all the item containers in dropdown menu including selected item container (with Studio version 8.11)|
-| `itemContainer` | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the drop-down item is pressed (defaults to `rgba(0, 0, 0, 0.2)`). |
-| `itemContainer`  | `underlayColor` | This is the color while pressing the drop-down item on iOS, if not set it will be defaulted to opacity only. |
-| `itemContainer`  | `activeOpacity` | This is the opacity to be applied while pressing the drop-down iOS, this only works if combined with `underlayColor`. |
-| `item` | This has all TextStlye properties | Styles all the items in dropdown menu including selected item (with Studio version 8.11)|
-| `selectedItem` | This has all TextStlye properties | Styles the selected item in dropdown menu (with Studio version 8.11)|
-| `selectedItemContainer` | This has all ViewStyle properties | Styles the selected item's container in dropdown menu (with Studio version 8.11)|
-
+| `useUniformDesign` | `boolean` | Enables new uniformDesign (with Studio Pro v8.11). |
+| `iconStyle`  | This has all TextStyle properties | Styles the arrow down icon next to the value (with Studio Pro v8.15).|
+| `value`  | `placeholderTextColor: string` | If placeholder is selected, placeholderTextColor will be applied (with Studio Pro v8.11).|
+| `valueFocused`  | Same properties as `value` | Overrides `value` styles if the dropdown box is focused. (with Studio Pro v8.15).|
+| `valueContainer` | This has all ViewStyle properties & rippleColor | Styles the value button's container (with Studio Pro v8.11).|
+| `valueContainerFocused` | Same properties as `valueContainer` | Overrides `valueContainer` styles if the dropdown box is focused (with Studio Pro v8.15).|
+| `menuWrapper` | This has all ViewStyle properties | Styles the wrapper view surrounding all the menu items (with Studio Pro v8.11).|
+| `itemContainer` | This has all ViewStyle properties | Styles all the item containers in dropdown menu including selected item container (with Studio Pro v8.11).|
+| `item` | This has all TextStlye properties | Styles all the items in dropdown menu including selected item (with Studio Pro v8.11).|
+| `selectedItem` | This has all TextStyle properties | Styles the selected item in dropdown menu (with Studio Pro v8.11).|
+| `selectedItemContainer` | This has all ViewStyle properties | Styles the selected item's container in dropdown menu (with Studio Pro v8.11).|
 
 ### 6.4 Check Box 
 
@@ -498,7 +494,6 @@ The widget’s style properties are as follows:
 | `value` | This has all TextStyle properties |  |
 | `value` | `rippleColor` | This is the color of the ripple on Android, and will be applied only when the date picker is pressed (defaults to `rgba(0, 0, 0, 0.2)`). |
 | `value`  | `underlayColor` | This is the color while pressing the date picker on iOS, if not set it will be defaulted to opacity only. |
-| `value`  | `activeOpacity` | This is the opacity to be applied while pressing the date picker iOS, this only works if combined with `underlayColor`. |
 | `valueDisabled` | This has all TextStyle properties | Overrides `value` styles if the date picker is non-editable. |
 | `placeholder` | This has all TextStyle properties |   |
 | `placeholderDisabled` | This has all TextStyle properties | Overrides `placeholder` styles if the date picker is non-editable. |
@@ -549,7 +544,6 @@ The widget’s style properties are as follows:
 | `container` | This has all ViewStyle properties. |    |
 | `container` | `rippleColor` | This is the color of the ripple on Android (defaults to `rgba(0, 0, 0, 0.2)`). |
 | `container`  | `underlayColor` | This is the color while pressing the button on iOS, if not set it will be defaulted to opacity only. |
-| `container`  | `activeOpacity` | This is the opacity to be applied while pressing the button iOS, this only works if combined with `underlayColor`. |
 | `containerDisabled` | Same properties as `container` | Overrides `container` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`. |
 | `caption` | This has all TextStyle properties. |   |
 | `captionDisabled` | Same properties as `caption` | Overrides `caption` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`. |
